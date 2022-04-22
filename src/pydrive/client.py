@@ -25,3 +25,9 @@ def send(msg):
     print(client.recv(2048))
 
 
+
+send('Hello World')
+send('Hello World')
+send('Hello World')
+
+send(DISCONNECT)
