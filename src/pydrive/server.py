@@ -52,3 +52,8 @@ def start():
         print(f'Active connections {threading.activeCount() - 1}')
 
 
+
+
+
+if __name__ == '__main__':
+    start()
