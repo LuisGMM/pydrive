@@ -36,9 +36,10 @@ class Item():
 
 class Directory(Item):
 
-    def __init__(self, path: str, parent: Directory = None, children: List[Directory] = None, contains: List[File] = None) -> None:
+    def __init__(self, path: str) -> None:
+
         super().__init__(path)
-        self.parent = parent
+        self.parent = self.path.split('/')[-2]
         self.children = children
         self.contains = contains
 
