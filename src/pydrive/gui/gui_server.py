@@ -76,7 +76,12 @@ class TreeDirectory(ttk.Frame):
         return uid
 
     def load_tree(self, path: str, parent_uid: str = "") -> None:
+        '''Loads the content of the directory `path` in the treeview and in `self.directories`.
 
+        Args:
+            path (str): Location of the directory
+            parent_uid (str, optional): Parent unique identifier. Defaults to "".
+        '''
         for fsobj in self.listdir(path):
 
             fullpath: str = join(path, fsobj)
