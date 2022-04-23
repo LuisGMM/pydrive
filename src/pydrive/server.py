@@ -65,10 +65,20 @@ class server(socket.socket):
         self.family = family
         self.type = type
         self.addr = addr
-        
 
 
 
+    def start():
+
+        server.listen()
+        print(f'Server is listening on {SERVER}')
+        while True:
+
+            conn, addr = server.accept()
+            thread = threading.Thread(target=handle_client, args=(conn, addr))
+            thread.start()
+
+            print(f'Active connections {threading.activeCount() - 1}')
 
 
 
