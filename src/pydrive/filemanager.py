@@ -20,6 +20,9 @@ class File():
     def __init__(self, from_path: str, name: str, modified: List[Tuple[datetime, User]]) -> None:
         ...
 
+    def get_file(self):
+        ...
+
 
 class Folder():
     pass
