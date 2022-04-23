@@ -40,6 +40,7 @@ class Directory(Item):
 
         super().__init__(path)
         self.parent = self.path.split('/')[-2]
+        self.image = self.get_image()
 
     @property
     def children(self) -> list:
@@ -66,6 +67,8 @@ class File(Item):
     def __init__(self, path: str, modified: List[Tuple[datetime, User]] = None) -> None:
         super().__init__(path)
         self.modified = modified
+        self.image = self.get_image()
+
 
     @property
     def file(self) -> bytes:
