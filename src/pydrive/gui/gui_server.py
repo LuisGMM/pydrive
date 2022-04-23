@@ -60,7 +60,4 @@ class TreeDirectory(ttk.Frame):
 
     def insert_item(self, name: str, path: str, parent_uid: str = "") -> str:
 
-        uid = self.treeview.insert(parent_uid, tk.END, text=name, tags=("fstag",), image=self.get_icon(path))
-        self.directories[uid] = path
-        
-        return uid
+
