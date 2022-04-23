@@ -92,4 +92,4 @@ class TreeDirectory(ttk.Frame):
                 for sub_fsobj in self.listdir(fullpath):
                     self.insert_item(sub_fsobj, join(fullpath, sub_fsobj), child)
 
-
+    def load_subitems(self, uid: str) -> None:
