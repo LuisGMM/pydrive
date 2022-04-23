@@ -8,6 +8,7 @@ from os import listdir
 from os.path import isdir
 
 import tkinter as tk
+from PIL import ImageTk, Image 
 
 from user import User
 
@@ -29,9 +30,9 @@ class Item():
             tk.PhotoImage: Icon image corresponding to `path`.
         '''
         if isdir(self.path):
-            return tk.PhotoImage(file='src/pydrive/gui/images/folder.png')
+            return ImageTk.PhotoImage(Image.open('src/pydrive/gui/images/folder2.png').resize((100, 100)))
         else:
-            return tk.PhotoImage(file='src/pydrive/gui/images/file.png')
+            return ImageTk.PhotoImage(Image.open('src/pydrive/gui/images/image2.png').resize((100, 100)))
 
 
 class Directory(Item):
