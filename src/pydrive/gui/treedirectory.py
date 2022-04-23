@@ -32,7 +32,7 @@ class TreeDirectory(ttk.Frame):
 
     def listdir(self, path: str) -> list:
         '''Returns a list with the directories in that `path`.
-        Is there is no permission to acces `path` it returns an empty list.
+        If there is no permission to acces `path` it returns an empty list.
 
         Args:
             path (str): Path directory to explore its contents.
