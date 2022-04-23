@@ -37,7 +37,7 @@ DISCONNECT = 'DISCONNECT'
 
 class user(socket.socket):
 
-    def __init__(self, id: str, username: str, password: str, email: str, family = socket.AF_INET, type = socket.SOCK_STREAM, addr: Tuple[str, int] = ADDR) -> None:
+    def __init__(self, id: str = None, username: str = None, password: str = None, email: str = None, family = socket.AF_INET, type = socket.SOCK_STREAM, addr: Tuple[str, int] = ADDR) -> None:
         
         super().__init__(family=family, type=type)
 
@@ -65,3 +65,13 @@ class user(socket.socket):
         super().send(message)
 
         return self.recv(2048)
+
+if __name__ == '__main__':
+
+    test_user = user()
+    test_user.connect()
+    test_user.send('Hello World')
+    test_user.send('Hello World')
+    test_user.send('Hello World')
+
+    test_user.send(DISCONNECT)
