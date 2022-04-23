@@ -46,5 +46,7 @@ class user(socket.socket):
         self.password = password
         self.email = email
     
-    def connect(self):
-        self.connect(ADDR)
+        self.addr = addr
+
+    def connect(self) -> None:
+        super().connect(self.addr)
