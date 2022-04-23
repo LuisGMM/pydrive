@@ -52,6 +52,10 @@ class CreateServerFrame(tk.Frame):
         self.create_button = tk.Button(self.parent, text="Create", command=lambda: True)
         self.create_button.grid(column=1, row=5)
 
+    def _search_root(self):
+        self.file = filedialog.askdirectory(initialdir="/")
+        return self.file
+    
     
 
 if __name__ == "__main__":
