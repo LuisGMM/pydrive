@@ -6,7 +6,8 @@ from os.path import abspath, isdir, join
 
 from tkinter import ttk
 
-from PIL import ImageTk, Image 
+from PIL import ImageTk, Image
+from pyparsing import col 
 
 from ..core.filemanager import Folder, File
 
@@ -22,17 +23,22 @@ class WindowManager(ttk.Frame):
 
 class GuiItem(ttk.Frame):
     
-    def __init__(self, parent: ttk.Frame, path: str = None, *args, **kwargs) -> None:
+    def __init__(self, parent: ttk.Frame, row, column, *args, **kwargs) -> None:
         super().__init__(parent, *args, **kwargs)
-    
+        self.grid(column=column, row=row)
 
-class GuiFolder(Folder):
+
+class GuiFolder(GuiItem, Folder):
 
     def __init__(self, parent, row, column, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+        GuiItem.__init__(parent, row, column, *args, **kwargs)
 
-        self.gui_image = tk.Label(image=self.image)
-        self
+        self.gui_image = tk.Label(self, image=self.image)
+        self.gui_image.grid(column=0, row=0)
+        
+        self.gui_name = tk.Label(self, text=self.name)
+        self.gui_name.grid(column=0, row=1)
+        
 
 
 class GuiFile(File):
