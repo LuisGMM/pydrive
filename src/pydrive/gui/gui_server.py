@@ -22,4 +22,10 @@ class CreateServerFrame(tk.Frame):
         self.server_name_entry = tk.Entry()
         self.server_name_entry.grid(column=1, row=0)
 
+        self.port_label = tk.Label(self.parent, text="Port", width=20)
+        self.port_label.grid(column=0, row=1)
+
+        self.port_entry = tk.Entry()
+        self.port_entry.grid(column=1, row=1)
+
         
