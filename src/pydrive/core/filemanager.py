@@ -19,7 +19,7 @@ class Item():
         self.path = path.replace('\\', '/')
         self.name = self.path.split('/')[-1]
 
-    def get_image(self, path: str) -> tk.PhotoImage:
+    def get_image(self) -> tk.PhotoImage:
         '''Get the corresponding image depending if `path` corresponds to a file or a folder.
 
         Args:
@@ -28,7 +28,7 @@ class Item():
         Returns:
             tk.PhotoImage: Icon image corresponding to `path`.
         '''
-        if isdir(path):
+        if isdir(self.path):
             return tk.PhotoImage(file='src/pydrive/gui/images/folder.png')
         else:
             return tk.PhotoImage(file='src/pydrive/gui/images/file.png')
@@ -68,7 +68,6 @@ class File(Item):
         super().__init__(path)
         self.modified = modified
         self.image = self.get_image()
-
 
     @property
     def file(self) -> bytes:
