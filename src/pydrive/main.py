@@ -1,11 +1,11 @@
 
 import tkinter as tk
 
-from gui import gui_server
+from gui import create_server
 
 
 ROOT = tk.Tk()
 ROOT.geometry("600x300")
-APP = gui_server.CreateServerFrame(parent=ROOT)
+APP = create_server.CreateServerFrame(parent=ROOT)
 APP.mainloop()
 ROOT.destroy()
