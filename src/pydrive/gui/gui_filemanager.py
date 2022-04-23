@@ -8,6 +8,7 @@ from tkinter import ttk
 
 from PIL import ImageTk, Image 
 
+from ..core.filemanager import Folder, Image
 
 class WindowManager(ttk.Frame):
 
@@ -19,10 +20,10 @@ class WindowManager(ttk.Frame):
         # self.grid(row=0, column=0, sticky='nsew')
 
 
-class Item():
+class GuiFolder(Folder):
 
-    def __init__(self, path):
-        pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
 
 
 if __name__ == '__main__':
