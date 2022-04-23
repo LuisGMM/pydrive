@@ -4,21 +4,21 @@ from __future__ import annotations
 from datetime import datetime
 from typing import List, Tuple
 
-from os import listdir, sep
-from os.path import abspath, isdir, join
+from os import listdir
+from os.path import isdir
 
 import tkinter as tk
 
-
 from user import User
 
+
 class Item():
-    
-    def __init__(self, path: str):    
-        
+
+    def __init__(self, path: str):
+
         self.path = path.replace('\\', '/')
         self.name = self.path.split('/')[-1]
-    
+
     def get_image(self, path: str) -> tk.PhotoImage:
         '''Get the corresponding image depending if `path` corresponds to a file or a folder.
 
@@ -40,11 +40,11 @@ class Directory(Item):
 
         super().__init__(path)
         self.parent = self.path.split('/')[-2]
-    
+
     @property
-    def children(self, path: str) -> list:
-        '''Returns a list with the items in that `path`.
-        Is there is no permission to acces `path` it returns an empty list.
+    def children(self) -> list:
+        '''Returns a list with the items in the directory.
+        If there is no permission to acces `path` it returns an empty list.
 
         Args:
             path (str): Path directory to explore its contents.
@@ -53,7 +53,7 @@ class Directory(Item):
             list: Contains the names of the directories (folders and files) in that path.
         '''
         try:
-            return listdir(path)
+            return listdir(self.path)
 
         except PermissionError as e:
             print(str(e))
