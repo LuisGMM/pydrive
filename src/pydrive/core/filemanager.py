@@ -40,8 +40,25 @@ class Directory(Item):
 
         super().__init__(path)
         self.parent = self.path.split('/')[-2]
-        self.children = children
-        self.contains = contains
+    
+    @property
+    def children(self, path: str) -> list:
+        '''Returns a list with the directories in that `path`.
+        Is there is no permission to acces `path` it returns an empty list.
+
+        Args:
+            path (str): Path directory to explore its contents.
+
+        Returns:
+            list: Contains the names of the directories (folders and files) in that path.
+        '''
+        try:
+            return listdir(path)
+
+        except PermissionError as e:
+            print(str(e))
+
+            return []
 
 
 class File(Item):
