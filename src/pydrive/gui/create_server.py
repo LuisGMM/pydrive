@@ -51,7 +51,7 @@ class CreateServerFrame(tk.Frame):
         self.search_root_button: tk.Button = tk.Button(self.parent, text="Search", command=self._cmd_search_root)
         self.search_root_button.grid(column=2, row=3)
 
-        self.create_button = tk.Button(self.parent, text="Create server", command= self._cmd_create_server)
+        self.create_button = tk.Button(self.parent, text="Create server", command=self._cmd_create_server)
         self.create_button.grid(column=1, row=5)
 
     def _cmd_search_default_port(self):
@@ -80,6 +80,7 @@ class CreateServerFrame(tk.Frame):
         self.parent.title(self.__title)
         self.__server = Server(addr=self.__addr)
         self.__server.start()
+
 
 if __name__ == "__main__":
     ROOT = tk.Tk()
