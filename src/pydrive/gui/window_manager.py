@@ -6,6 +6,9 @@ from os.path import abspath, isdir, join
 
 from tkinter import ttk
 
+from PIL import ImageTk, Image 
+
+
 class WindowManager(ttk.Frame):
 
     def __init__(self, parent: ttk.Frame, path: str = None, *args, **kwargs) -> None:
@@ -13,11 +16,22 @@ class WindowManager(ttk.Frame):
         super().__init__(parent, *args, **kwargs)
         self.parent = parent
 
-        self.grid(row=0, column=0, sticky='nsew')
+        # self.grid(row=0, column=0, sticky='nsew')
+
+
+class Item():
+
+    def __init__(self, path):
+        pass
 
 
 if __name__ == '__main__':
-    
-    main_window = tk.Tk()
-    app = WindowManager(main_window)
-    app.mainloop()
+
+    root = tk.Tk()
+    root.geometry("700x350")
+
+    img = ImageTk.PhotoImage(Image.open('src/pydrive/gui/images/folder2.png').resize((100, 100)))
+    label = tk.Label(image=img)
+    label.grid(column=0, row=0)
+
+    root.mainloop()
