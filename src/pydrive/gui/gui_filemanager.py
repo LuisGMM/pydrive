@@ -23,14 +23,14 @@ class WindowManager(ttk.Frame):
 
 class GuiItem(ttk.Frame):
     
-    def __init__(self, parent: ttk.Frame, row, column, *args, **kwargs) -> None:
+    def __init__(self, parent: ttk.Frame, row: int, column: int, *args, **kwargs) -> None:
         super().__init__(parent, *args, **kwargs)
         self.grid(column=column, row=row)
 
 
 class GuiFolder(GuiItem, Folder):
 
-    def __init__(self, parent, row, column, *args, **kwargs):
+    def __init__(self, parent: ttk.Frame, row: int, column: int, *args, **kwargs):
         GuiItem.__init__(parent, row, column, *args, **kwargs)
 
         self.gui_image = tk.Label(self, image=self.image)
