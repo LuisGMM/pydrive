@@ -11,15 +11,6 @@ from pyparsing import col
 
 from ..core.filemanager import Folder, File
 
-class WindowManager(ttk.Frame):
-
-    def __init__(self, parent: ttk.Frame, path: str = None, *args, **kwargs) -> None:
-
-        super().__init__(parent, *args, **kwargs)
-        self.parent = parent
-
-        # self.grid(row=0, column=0, sticky='nsew')
-
 
 class GuiItem(ttk.Frame):
     
@@ -47,7 +38,8 @@ class GuiFile(File):
     def __init__(self, parent: ttk.Frame, row: int, column: int, *args, **kwargs):
         GuiItem.__init__(parent, row, column, *args, **kwargs)
 
-        
+        self.gui_image.configure(image=self.image)
+        self.gui_name.configure(text=self.name)    
 
 
 
