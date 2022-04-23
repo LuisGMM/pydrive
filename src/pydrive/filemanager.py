@@ -28,5 +28,9 @@ class File():
 
     def get_file(self) -> bytes:
 
-        with open(self.from_path, 'rb') as f:
-            return f.read()
+        try:
+            with open(self.from_path, 'rb') as f:
+                return f.read()
+
+        except IOError as e:
+            print(e)
