@@ -34,12 +34,12 @@ class server(socket.socket):
         while True:
 
             conn, addr = super().accept()
-            thread = threading.Thread(target=self.__handle_client, args=(conn, addr))
+            thread = threading.Thread(target=self.__listen_user, args=(conn, addr))
             thread.start()
 
             print(f'Active connections {threading.activeCount() - 1}')
 
-    def __handle_client(self, conn: socket.socket, addr: Tuple[str, int]) -> None:
+    def __listen_user(self, conn: socket.socket, addr: Tuple[str, int]) -> None:
 
         print(f'New connection {addr} .')
         connected: bool = True
