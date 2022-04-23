@@ -1,4 +1,5 @@
 
 
-class path(): 
+class Path(): 
     raise NotImplementedError()
+
