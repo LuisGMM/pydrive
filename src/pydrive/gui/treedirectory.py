@@ -11,20 +11,20 @@ class TreeDirectory(ttk.Frame):
         super().__init__(main_window)
 
         self.treeview: ttk.Treeview = ttk.Treeview(self)
-        self.treeview.grid(row=0, column=0, sticky="nsew")
+        self.treeview.grid(row=0, column=0, sticky='nsew')
 
-        self.treeview.tag_bind("fstag", "<<TreeviewOpen>>", self.event_item_opened)
+        self.treeview.tag_bind('fstag', '<<TreeviewOpen>>', self.event_item_opened)
 
         for w in (self, main_window):
             w.rowconfigure(0, weight=1)
             w.columnconfigure(0, weight=1)
 
-        self.grid(row=0, column=0, sticky="nsew")
+        self.grid(row=0, column=0, sticky='nsew')
 
         self.directories: dict[str, str] = {}
 
-        self.file_image: tk.PhotoImage = tk.PhotoImage(file="src/pydrive/gui/images/file.png")
-        self.folder_image: tk.PhotoImage = tk.PhotoImage(file="src/pydrive/gui/images/folder.png")
+        self.file_image: tk.PhotoImage = tk.PhotoImage(file='src/pydrive/gui/images/file.png')
+        self.folder_image: tk.PhotoImage = tk.PhotoImage(file='src/pydrive/gui/images/folder.png')
 
         self.load_tree(abspath(sep))
 
@@ -57,29 +57,29 @@ class TreeDirectory(ttk.Frame):
         '''
         return self.folder_image if isdir(path) else self.file_image
 
-    def insert_item(self, name: str, path: str, parent_uid: str = "") -> str:
+    def insert_item(self, name: str, path: str, parent_uid: str = '') -> str:
         '''Inserts the item located at `path` inside its parent `parent_uid` in the treeview
         and store the item in `self.directories`.
 
         Args:
             name (str): Text identifying the item in the treeview.
             path (str): Location of the item.
-            parent_uid (str, optional): Parent of the item in the treeview. Defaults to "".
+            parent_uid (str, optional): Parent of the item in the treeview. Defaults to ''.
 
         Returns:
             str: The unique identifier of the inserted item.
         '''
-        uid = self.treeview.insert(parent_uid, tk.END, text=name, tags=("fstag",), image=self.get_icon(path))
+        uid = self.treeview.insert(parent_uid, tk.END, text=name, tags=('fstag',), image=self.get_icon(path))
         self.directories[uid] = path
 
         return uid
 
-    def load_tree(self, path: str, parent_uid: str = "") -> None:
+    def load_tree(self, path: str, parent_uid: str = '') -> None:
         '''Loads the content of the directory `path` in the treeview and in `self.directories`.
 
         Args:
             path (str): Location of the directory
-            parent_uid (str, optional): Parent unique identifier. Defaults to "".
+            parent_uid (str, optional): Parent unique identifier. Defaults to ''.
         '''
         for fsobj in self.listdir(path):
 
