@@ -11,28 +11,28 @@ HEADER = 64
 FORMAT  = 'utf-8'
 DISCONNECT = 'DISCONNECT'
 
-client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-client.connect(ADDR)
+# client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+# client.connect(ADDR)
 
 
-def send(msg):
+# def send(msg):
     
-    message = msg.encode(FORMAT)
-    message_length = len(message)
-    send_length = str(message_length).encode(FORMAT)
-    send_length += b' ' * (HEADER - len(send_length))
+#     message = msg.encode(FORMAT)
+#     message_length = len(message)
+#     send_length = str(message_length).encode(FORMAT)
+#     send_length += b' ' * (HEADER - len(send_length))
 
-    client.send(send_length)
-    client.send(message)
-    print(client.recv(2048))
+#     client.send(send_length)
+#     client.send(message)
+#     print(client.recv(2048))
 
 
 
-send('Hello World')
-send('Hello World')
-send('Hello World')
+# send('Hello World')
+# send('Hello World')
+# send('Hello World')
 
-send(DISCONNECT)
+# send(DISCONNECT)
 
 
 class user(socket.socket):
@@ -53,14 +53,26 @@ class user(socket.socket):
         super().connect(self.addr)
 
 
-    def send(self, msg):
+    def send(self, msg: str):
         
-        message = msg.encode(FORMAT)
-        message_length = len(message)
-        
-        send_length = str(message_length).encode(FORMAT)
+        message: bytes = msg.encode(FORMAT)
+        message_length: int = len(message)
+
+        send_length: bytes = str(message_length).encode(FORMAT)
         send_length += b' ' * (HEADER - len(send_length))
 
         client.send(send_length)
         client.send(message)
         print(client.recv(2048))
+
+
+
+if __name__ == '__main__':
+
+    message_length: int = 100
+
+    send_length: bytes = str(message_length).encode(FORMAT)
+    send_length += b' ' * (HEADER - len(send_length))
+    send_length2 = bin(message_length).encode(FORMAT)
+
+    print(send_length, send_length2)
