@@ -37,8 +37,9 @@ class GuiFolder(GuiItem, Folder):
 
 class GuiFile(File):
 
-    def __init__(self, parent: ttk.Frame, row: int, column: int, *args, **kwargs):
+    def __init__(self, parent: ttk.Frame, row: int, column: int, path: str, *args, **kwargs):
         GuiItem.__init__(parent, row, column, *args, **kwargs)
+        File.__init__(path)
 
         self.gui_image.configure(image=self.image)
         self.gui_name.configure(text=self.name)    
