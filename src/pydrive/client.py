@@ -42,4 +42,7 @@ class user(socket.socket):
         self.password = password
         self.email = email
     
-    
+    def connect(self):
+
+        client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        client.connect(ADDR)
