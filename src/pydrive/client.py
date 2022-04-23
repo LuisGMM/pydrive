@@ -8,30 +8,29 @@ SERVER = socket.gethostbyname(socket.gethostname())
 ADDR = (SERVER, PORT)
 
 HEADER = 64
-FORMAT  = 'utf-8'
+FORMAT = 'utf-8'
 DISCONNECT = 'DISCONNECT'
 
 
 class user(socket.socket):
 
-    def __init__(self, id: str = None, username: str = None, password: str = None, email: str = None, family = socket.AF_INET, type = socket.SOCK_STREAM, addr: Tuple[str, int] = ADDR) -> None:
-        
+    def __init__(self, id: str = None, username: str = None, password: str = None, email: str = None,
+                 family=socket.AF_INET, type=socket.SOCK_STREAM, addr: Tuple[str, int] = ADDR) -> None:
+
         super().__init__(family=family, type=type)
 
         self.id = id
         self.username = username
         self.password = password
         self.email = email
-    
-        self.addr = addr
 
+        self.addr = addr
 
     def connect(self) -> None:
         super().connect(self.addr)
 
-
     def send(self, msg: str):
-        
+
         message: bytes = msg.encode(FORMAT)
         message_length: int = len(message)
 
@@ -42,6 +41,7 @@ class user(socket.socket):
         super().send(message)
 
         return self.recv(2048)
+
 
 if __name__ == '__main__':
 
