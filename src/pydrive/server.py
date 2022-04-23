@@ -67,14 +67,15 @@ class server(socket.socket):
         self.addr = addr
 
 
+    def start(self):
 
-    def start():
-
-        server.listen()
+        self.listen()
+        
         print(f'Server is listening on {SERVER}')
+        
         while True:
 
-            conn, addr = server.accept()
+            conn, addr = self.accept()
             thread = threading.Thread(target=handle_client, args=(conn, addr))
             thread.start()
 
