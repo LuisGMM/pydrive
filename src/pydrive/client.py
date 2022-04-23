@@ -61,6 +61,7 @@ class user(socket.socket):
         send_length: bytes = str(message_length).encode(FORMAT)
         send_length += b' ' * (HEADER - len(send_length))
 
-        client.send(send_length)
-        client.send(message)
-        print(client.recv(2048))
+        super().send(send_length)
+        super().send(message)
+
+        return self.recv(2048)
