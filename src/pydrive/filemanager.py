@@ -18,10 +18,17 @@ class Path():
 class File():
     
     def __init__(self, from_path: str, name: str, modified: List[Tuple[datetime, User]]) -> None:
-        ...
+        
+        self.from_path = from_path
+        self.name = name
+        self.modified = modified
 
-    def get_file(self):
-        ...
+        self.file = self.get_file()
+
+    def get_file(self) -> bytes:
+        return open(self.from_path, 'rb').read()
+        
+        
 
 
 class Folder():
