@@ -23,8 +23,8 @@ class TreeDirectory(ttk.Frame):
 
         self.directories: dict[str, str] = {}
 
-        self.file_image: tk.PhotoImage = tk.PhotoImage(file="/home/luisgmm/Documents/GitHub/pydrive/src/pydrive/gui/file.png")
-        self.folder_image: tk.PhotoImage = tk.PhotoImage(file="/home/luisgmm/Documents/GitHub/pydrive/src/pydrive/gui/folder.png")
+        self.file_image: tk.PhotoImage = tk.PhotoImage(file="src/pydrive/gui/images/file.png")
+        self.folder_image: tk.PhotoImage = tk.PhotoImage(file="src/pydrive/gui/images/folder.png")
 
         self.load_tree(abspath(sep))
 
