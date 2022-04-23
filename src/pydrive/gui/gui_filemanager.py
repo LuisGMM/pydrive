@@ -8,7 +8,7 @@ from tkinter import ttk
 
 from PIL import ImageTk, Image
 
-from ..core.filemanager import Folder, File
+from core.filemanager import Folder, File
 
 
 class GuiItem(ttk.Frame):
@@ -27,8 +27,8 @@ class GuiItem(ttk.Frame):
 class GuiFolder(GuiItem, Folder):
 
     def __init__(self, parent: ttk.Frame, row: int, column: int, path: str, *args, **kwargs):
-        GuiItem.__init__(parent, row, column, *args, **kwargs)
-        Folder.__init__(path)
+        super(GuiItem, self).__init__(parent, row, column, *args, **kwargs)
+        super(Folder, self).__init__(path)
 
         self.gui_image.configure(image=self.image)
         self.gui_name.configure(text=self.name)
