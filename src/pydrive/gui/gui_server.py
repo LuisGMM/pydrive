@@ -37,7 +37,9 @@ class CreateServerFrame(tk.Frame):
         self.ip_entry = tk.Entry()
         self.ip_entry.grid(column=1, row=2)
 
-        
+        self.default_ip_button = tk.Button(self.parent, text="Default", command=self._search_default_ip)
+        self.default_ip_button.grid(column=2, row=2)
+
 
 if __name__ == "__main__":
     ROOT = tk.Tk()
