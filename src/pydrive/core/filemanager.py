@@ -43,7 +43,7 @@ class Directory(Item):
     
     @property
     def children(self, path: str) -> list:
-        '''Returns a list with the directories in that `path`.
+        '''Returns a list with the items in that `path`.
         Is there is no permission to acces `path` it returns an empty list.
 
         Args:
@@ -63,15 +63,13 @@ class Directory(Item):
 
 class File(Item):
 
-    def __init__(self, path: str, from_path: str = None, name: str = None, modified: List[Tuple[datetime, User]] = None) -> None:
+    def __init__(self, path: str, from_path: str = None, modified: List[Tuple[datetime, User]] = None) -> None:
         super().__init__(path)
         self.from_path = from_path
-        self.name = name
         self.modified = modified
 
-        self.file = self.get_file()
-
-    def get_file(self) -> bytes:
+    @property
+    def file(self) -> bytes:
 
         try:
             with open(self.from_path, 'rb') as f:
