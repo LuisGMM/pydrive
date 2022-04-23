@@ -24,6 +24,7 @@ class GuiItem(ttk.Frame):
         self.gui_name = tk.Label(self)
         self.gui_name.grid(column=0, row=1)
 
+
 class GuiFolder(GuiItem, Folder):
 
     def __init__(self, parent: ttk.Frame, row: int, column: int, *args, **kwargs):
@@ -40,6 +41,18 @@ class GuiFile(File):
 
         self.gui_image.configure(image=self.image)
         self.gui_name.configure(text=self.name)    
+
+
+class WindowManager(ttk.Frame):
+
+    def __init__(self, parent: ttk.Frame, path: str = None, *args, **kwargs) -> None:
+
+        super().__init__(parent, *args, **kwargs)
+        self.parent = parent
+
+        self.elem = GuiFolder(self)
+
+        # self.grid(row=0, column=0, sticky='nsew')
 
 
 
