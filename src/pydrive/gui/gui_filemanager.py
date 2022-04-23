@@ -21,7 +21,9 @@ class WindowManager(ttk.Frame):
 
 
 class GuiItem(ttk.Frame):
-    pass
+    
+    def __init__(self, parent: ttk.Frame, path: str = None, *args, **kwargs) -> None:
+        super().__init__(parent, *args, **kwargs)
     
 
 class GuiFolder(Folder):
