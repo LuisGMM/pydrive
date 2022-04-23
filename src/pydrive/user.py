@@ -12,7 +12,7 @@ FORMAT = 'utf-8'
 DISCONNECT = 'DISCONNECT'
 
 
-class user(socket.socket):
+class User(socket.socket):
 
     def __init__(self, id: str = None, username: str = None, password: str = None, email: str = None,
                  family=socket.AF_INET, type=socket.SOCK_STREAM, addr: Tuple[str, int] = ADDR) -> None:
@@ -45,7 +45,7 @@ class user(socket.socket):
 
 if __name__ == '__main__':
 
-    test_user = user()
+    test_user = User()
     test_user.connect()
     test_user.send('Hello World')
     test_user.send('Hello World')
