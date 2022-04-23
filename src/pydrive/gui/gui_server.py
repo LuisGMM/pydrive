@@ -60,7 +60,12 @@ class CreateServerFrame(tk.Frame):
         self.port_entry.delete(0, tk.END)
         self.port_entry.insert(tk.END, 5050)
 
-
+    def _search_default_ip(self):
+        
+        self.__ip = socket.gethostbyname(socket.gethostname())
+        
+        self.ip_entry.delete(0, tk.END)
+        self.ip_entry.insert(tk.END, self.__ip)
 
 if __name__ == "__main__":
     ROOT = tk.Tk()
