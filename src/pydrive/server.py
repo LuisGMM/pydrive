@@ -14,9 +14,6 @@ DISCONNECT = 'DISCONNECT'
 RECEIVED = 'RECEIVED'
 
 
-
-
-
 class server(socket.socket):
 
     def __init__(self, family = socket.AF_INET, type = socket.SOCK_STREAM, addr: Tuple[str, int] = ADDR) -> None:
