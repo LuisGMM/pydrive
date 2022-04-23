@@ -1,9 +1,10 @@
 
 from __future__ import annotations
 
-import time
+from datetime import datetime
 from typing import List, Tuple, Union
 
+from user import User
 
 class Path():
 
@@ -16,7 +17,7 @@ class Path():
 
 class File():
     
-    def __init__(self, from_path: str, name: str, modified: List[Tuple[Time, User]]) -> None:
+    def __init__(self, from_path: str, name: str, modified: List[Tuple[datetime, User]]) -> None:
         ...
 
 
