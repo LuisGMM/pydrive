@@ -14,7 +14,7 @@ DISCONNECT = 'DISCONNECT'
 RECEIVED = 'RECEIVED'
 
 
-class server(socket.socket):
+class Server(socket.socket):
 
     def __init__(self, family=socket.AF_INET, type=socket.SOCK_STREAM, addr: Tuple[str, int] = ADDR) -> None:
 
@@ -68,5 +68,5 @@ class server(socket.socket):
 
 if __name__ == '__main__':
 
-    test_server = server()
+    test_server = Server()
     test_server.start()
