@@ -5,3 +5,6 @@ class Path():
 
 class File(): 
     raise NotImplementedError()
+
+class Folder(): 
+    raise NotImplementedError()
