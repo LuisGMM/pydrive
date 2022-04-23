@@ -27,3 +27,7 @@ class TreeDirectory(ttk.Frame):
         self.file_image: tk.PhotoImage = tk.PhotoImage(file="/home/luisgmm/Documents/GitHub/pydrive/src/pydrive/gui/file.png")
         self.folder_image: tk.PhotoImage = tk.PhotoImage(file="/home/luisgmm/Documents/GitHub/pydrive/src/pydrive/gui/folder.png")
 
+        self.load_tree(abspath(sep))
+
+    def listdir(self, path: str) -> list:
+        
