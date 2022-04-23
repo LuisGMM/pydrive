@@ -74,3 +74,5 @@ class TreeDirectory(ttk.Frame):
         self.directories[uid] = path
         
         return uid
+
+    def load_tree(self, path: str, parent_uid: str = "") -> None:
