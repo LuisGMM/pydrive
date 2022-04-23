@@ -62,6 +62,11 @@ class server(socket.socket):
         super().__init__(family=family, type=type)
         self.bind(addr)
 
+        self.family = family
+        self.type = type
+        self.addr = addr
+        
+
 
 
 
