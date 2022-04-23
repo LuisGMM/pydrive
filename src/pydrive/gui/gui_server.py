@@ -30,7 +30,15 @@ class TreeDirectory(ttk.Frame):
         self.load_tree(abspath(sep))
 
     def listdir(self, path: str) -> list:
+        '''Returns a list with the directories in that `path`.
+        Is there is no permission to acces `path` it returns an empty list.
 
+        Args:
+            path (str): Path directory to explore its contents. 
+
+        Returns:
+            list: Contains the names of the directories (folders and files) in that path.
+        '''
         try:
             return listdir(path)
         
