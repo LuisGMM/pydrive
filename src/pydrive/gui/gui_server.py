@@ -105,6 +105,14 @@ class TreeDirectory(ttk.Frame):
                 self.load_tree(self.directories[child_uid], parent_uid=child_uid)
 
     def event_item_opened(self, event) -> None:
+        '''Event invoked when a an item is opened.
+        It loads the contents of of that item the the treeview and updated `self.directories`.
 
+        Note that it does not distinguishes between files and folders. If the event is triggered 
+        with a file, which obviously has not items inside, it will runs anyway but do nothing.
+
+        Args:
+            event (_type_): Tkinter event argument.
+        '''
         uid: str = self.treeview.selection()[0]
         self.load_subitems(uid)
