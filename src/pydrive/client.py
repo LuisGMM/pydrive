@@ -37,6 +37,8 @@ class user(socket.socket):
 
     def __init__(self, id: str, username: str, password: str, email: str, family = socket.AF_INET, type = socket.SOCK_STREAM) -> None:
         
+        super().__init__(family=family, type=type)
+
         self.id = id
         self.username = username
         self.password = password
