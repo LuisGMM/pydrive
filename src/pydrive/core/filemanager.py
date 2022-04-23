@@ -63,9 +63,8 @@ class Directory(Item):
 
 class File(Item):
 
-    def __init__(self, path: str, from_path: str = None, modified: List[Tuple[datetime, User]] = None) -> None:
+    def __init__(self, path: str, modified: List[Tuple[datetime, User]] = None) -> None:
         super().__init__(path)
-        self.from_path = from_path
         self.modified = modified
 
     @property
