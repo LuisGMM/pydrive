@@ -29,7 +29,12 @@ class Server(socket.socket):
         self._type = type
         self._addr = addr
     
-    def __new__(cls: Server, *args, **kwargs) -> Server: ...
+    def __new__(cls: Server, *args, **kwargs) -> Server:
+
+        if not cls.__created:
+            cls.__created = True
+            return super().__new__(cls, *args, **kwargs)
+
 
     def start(self) -> None:
 
