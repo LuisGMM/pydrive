@@ -19,34 +19,34 @@ class CreateServerFrame(tk.Frame):
         server_name_label: tk.Label = tk.Label(self.parent, text="Server Name:", width=20)
         server_name_label.grid(column=0, row=0)
 
-        self.server_name_entry = tk.Entry()
+        self.server_name_entry: tk.Entry = tk.Entry()
         self.server_name_entry.grid(column=1, row=0)
 
         self.port_label: tk.Label = tk.Label(self.parent, text="Port", width=20)
         self.port_label.grid(column=0, row=1)
 
-        self.port_entry = tk.Entry()
+        self.port_entry: tk.Entry = tk.Entry()
         self.port_entry.grid(column=1, row=1)
 
-        self.default_port_button = tk.Button(self.parent, text="Default", command=self._search_default_port)
+        self.default_port_button: tk.Button = tk.Button(self.parent, text="Default", command=self._search_default_port)
         self.default_port_button.grid(column=2, row=1)
 
         self.ip_label: tk.Label = tk.Label(self.parent, text="Ip", width=20)
         self.ip_label.grid(column=0, row=2)
 
-        self.ip_entry = tk.Entry()
+        self.ip_entry : tk.Entry= tk.Entry()
         self.ip_entry.grid(column=1, row=2)
 
-        self.default_ip_button = tk.Button(self.parent, text="Default", command=self._search_default_ip)
+        self.default_ip_button: tk.Button = tk.Button(self.parent, text="Default", command=self._search_default_ip)
         self.default_ip_button.grid(column=2, row=2)
 
         self.root_label: tk.Label = tk.Label(self.parent, text="Root directory", width=20)
         self.root_label.grid(column=0, row=3)
 
-        self.root_entry = tk.Entry()
+        self.root_entry: tk.Entry = tk.Entry()
         self.root_entry.grid(column=1, row=3)
 
-        self.search_root_button = tk.Button(self.parent, text="Search", command=self._search_root)
+        self.search_root_button: tk.Button = tk.Button(self.parent, text="Search", command=self._search_root)
         self.search_root_button.grid(column=2, row=3)
 
         self.create_button = tk.Button(self.parent, text="Create", command=lambda: True)
