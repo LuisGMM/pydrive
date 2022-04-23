@@ -1,5 +1,8 @@
+
+from typing import Tuple
 import socket
 import threading
+
 
 PORT = 5050
 SERVER = socket.gethostbyname(socket.gethostname())
@@ -10,8 +13,8 @@ FORMAT  = 'utf-8'
 DISCONNECT = 'DISCONNECT'
 RECEIVED = 'RECEIVED'
 
-server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-server.bind(ADDR)
+# server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+# server.bind(ADDR)
 
 
 def handle_client(conn, addr):
@@ -50,6 +53,11 @@ def start():
         thread.start()
 
         print(f'Active connections {threading.activeCount() - 1}')
+
+
+
+
+
 
 
 
