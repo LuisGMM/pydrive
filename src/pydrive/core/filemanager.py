@@ -9,7 +9,7 @@ from user import User
 
 class Directory():
 
-    def __init__(self, parent: Directory, children: List[Directory], contains: List[File]) -> None:
+    def __init__(self, parent: Directory = None, children: List[Directory] = None, contains: List[File] = None) -> None:
 
         self.parent = parent
         self.children = children
@@ -18,7 +18,7 @@ class Directory():
 
 class File():
 
-    def __init__(self, from_path: str, name: str, modified: List[Tuple[datetime, User]]) -> None:
+    def __init__(self, from_path: str = None, name: str = None, modified: List[Tuple[datetime, User]] = None) -> None:
 
         self.from_path = from_path
         self.name = name
