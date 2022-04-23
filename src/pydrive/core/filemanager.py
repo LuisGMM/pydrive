@@ -35,7 +35,7 @@ class Item():
             return ImageTk.PhotoImage(Image.open('src/pydrive/gui/images/image2.png').resize((100, 100)))
 
 
-class Directory(Item):
+class Folder(Item):
 
     def __init__(self, path: str) -> None:
 
