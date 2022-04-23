@@ -34,7 +34,7 @@ class CreateServerFrame(tk.Frame):
         self.ip_label: tk.Label = tk.Label(self.parent, text="Ip", width=20)
         self.ip_label.grid(column=0, row=2)
 
-        self.ip_entry : tk.Entry= tk.Entry()
+        self.ip_entry: tk.Entry = tk.Entry()
         self.ip_entry.grid(column=1, row=2)
 
         self.default_ip_button: tk.Button = tk.Button(self.parent, text="Default", command=self._search_default_ip)
@@ -55,17 +55,18 @@ class CreateServerFrame(tk.Frame):
     def _search_root(self):
         self.file = filedialog.askdirectory(initialdir="/")
         return self.file
-    
+
     def _search_default_port(self):
         self.port_entry.delete(0, tk.END)
         self.port_entry.insert(tk.END, 5050)
 
     def _search_default_ip(self):
-        
+
         self.__ip = socket.gethostbyname(socket.gethostname())
-        
+
         self.ip_entry.delete(0, tk.END)
         self.ip_entry.insert(tk.END, self.__ip)
+
 
 if __name__ == "__main__":
     ROOT = tk.Tk()
