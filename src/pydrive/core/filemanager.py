@@ -10,7 +10,7 @@ from os.path import isdir
 import tkinter as tk
 from PIL import ImageTk, Image 
 
-from user import User
+from core.user import User
 
 
 class Item():
