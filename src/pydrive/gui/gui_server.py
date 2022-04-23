@@ -56,7 +56,11 @@ class CreateServerFrame(tk.Frame):
         self.file = filedialog.askdirectory(initialdir="/")
         return self.file
     
-    
+    def _search_default_port(self):
+        self.port_entry.delete(0, tk.END)
+        self.port_entry.insert(tk.END, 5050)
+
+
 
 if __name__ == "__main__":
     ROOT = tk.Tk()
