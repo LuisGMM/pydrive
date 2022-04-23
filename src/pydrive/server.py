@@ -56,7 +56,9 @@ def start():
 
 
 
+class server(socket.socket):
 
+    raise NotImplementedError()
 
 
 
