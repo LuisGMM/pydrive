@@ -1,3 +1,5 @@
+
+from typing import Tuple
 import socket
 
 
@@ -35,7 +37,7 @@ send(DISCONNECT)
 
 class user(socket.socket):
 
-    def __init__(self, id: str, username: str, password: str, email: str, family = socket.AF_INET, type = socket.SOCK_STREAM) -> None:
+    def __init__(self, id: str, username: str, password: str, email: str, family = socket.AF_INET, type = socket.SOCK_STREAM, addr: Tuple[str, int] = ADDR) -> None:
         
         super().__init__(family=family, type=type)
 
@@ -45,6 +47,4 @@ class user(socket.socket):
         self.email = email
     
     def connect(self):
-
-        client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        client.connect(ADDR)
+        self.connect(ADDR)
