@@ -21,6 +21,7 @@ class WindowManager(ttk.Frame):
 
 
 class GuiItem(ttk.Frame):
+    pass
     
 
 class GuiFolder(Folder):
