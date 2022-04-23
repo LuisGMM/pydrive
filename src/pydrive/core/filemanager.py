@@ -13,18 +13,9 @@ from user import User
 class Item():
     
     def __init__(self, path: str):    
+        
         self.path = path
-
-    def get_icon(self):
-        '''Get the corresponding image depending if `path` corresponds to a file or a folder.
-
-        Args:
-            path (str): Directory of the item we want an icon for.
-
-        Returns:
-            tk.PhotoImage: Icon image corresponding to `path`.
-        '''
-        return self.folder_image if isdir(self.path) else self.file_image
+        self.isdir = True if isdir(self.path) else False
 
 
 class Directory(Item):
