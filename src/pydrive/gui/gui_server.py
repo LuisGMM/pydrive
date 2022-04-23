@@ -105,3 +105,6 @@ class TreeDirectory(ttk.Frame):
                 self.load_tree(self.directories[child_uid], parent_uid=child_uid)
 
     def event_item_opened(self, event) -> None:
+
+        uid: str = self.treeview.selection()[0]
+        self.load_subitems(uid)
