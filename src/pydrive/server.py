@@ -76,13 +76,14 @@ class server(socket.socket):
         while True:
 
             conn, addr = self.accept()
-            thread = threading.Thread(target=handle_client, args=(conn, addr))
+            thread = threading.Thread(target=self.__handle_client, args=(conn, addr))
             thread.start()
 
             print(f'Active connections {threading.activeCount() - 1}')
 
 
-    def handle_client(conn, addr):
+    def __handle_client(self, conn: socket.socket, addr: Tuple[str, int]):
+
         print(f'New connection {addr} .')
         connected: bool = True
 
@@ -94,6 +95,7 @@ class server(socket.socket):
                 continue
             
             msg_length = int(msg_length)
+
             msg = conn.recv(msg_length).decode(FORMAT)
 
             if msg == DISCONNECT:
