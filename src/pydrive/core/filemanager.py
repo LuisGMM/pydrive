@@ -8,7 +8,9 @@ from user import User
 
 class Item():
     
-    def __init__(self, path: str, )
+    def __init__(self, path: str):    
+        self.path = path
+
 
 
 class Directory(Item):
