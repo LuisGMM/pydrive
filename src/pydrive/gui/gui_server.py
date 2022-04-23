@@ -28,4 +28,7 @@ class CreateServerFrame(tk.Frame):
         self.port_entry = tk.Entry()
         self.port_entry.grid(column=1, row=1)
 
+        self.default_port_button = tk.Button(self.parent, text="Default", command=self._search_default_port)
+        self.default_port_button.grid(column=2, row=1)
+
         
