@@ -17,9 +17,9 @@ class Directory():
 
 
 class File():
-    
+
     def __init__(self, from_path: str, name: str, modified: List[Tuple[datetime, User]]) -> None:
-        
+
         self.from_path = from_path
         self.name = name
         self.modified = modified
