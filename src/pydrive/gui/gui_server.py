@@ -1,123 +1,92 @@
 
 import tkinter as tk
+
 from tkinter import ttk
+from tkinter import filedialog
 
-from os import listdir, sep
-from os.path import isdir, join, abspath
-
-
-class TreeDirectory(ttk.Frame):
-
-    def __init__(self, main_window: ttk.Frame) -> None:
-        super().__init__(main_window)
-
-        self.treeview: ttk.Treeview = ttk.Treeview(self)
-        self.treeview.grid(row=0, column=0, sticky="nsew")
-
-        self.treeview.tag_bind("fstag", "<<TreeviewOpen>>", self.event_item_opened)
-
-        for w in (self, main_window):
-            w.rowconfigure(0, weight=1)
-            w.columnconfigure(0, weight=1)
-
-        self.grid(row=0, column=0, sticky="nsew")
-
-        self.directories: dict[str, str] = {}
-
-        self.file_image: tk.PhotoImage = tk.PhotoImage(file="/home/luisgmm/Documents/GitHub/pydrive/src/pydrive/gui/file.png")
-        self.folder_image: tk.PhotoImage = tk.PhotoImage(file="/home/luisgmm/Documents/GitHub/pydrive/src/pydrive/gui/folder.png")
-
-        self.load_tree(abspath(sep))
-
-    def listdir(self, path: str) -> list:
-        '''Returns a list with the directories in that `path`.
-        Is there is no permission to acces `path` it returns an empty list.
-
-        Args:
-            path (str): Path directory to explore its contents.
-
-        Returns:
-            list: Contains the names of the directories (folders and files) in that path.
-        '''
-        try:
-            return listdir(path)
-
-        except PermissionError as e:
-            print(str(e))
-
-            return []
-
-    def get_icon(self, path: str) -> tk.PhotoImage:
-        '''Get the corresponding image depending if `path` corresponds to a file or a folder.
-
-        Args:
-            path (str): Directory of the item we want an icon for.
-
-        Returns:
-            tk.PhotoImage: Icon image corresponding to `path`.
-        '''
-        return self.folder_image if isdir(path) else self.file_image
-
-    def insert_item(self, name: str, path: str, parent_uid: str = "") -> str:
-        '''Inserts the item located at `path` inside its parent `parent_uid` in the treeview
-        and store the item in `self.directories`.
-
-        Args:
-            name (str): Text identifying the item in the treeview.
-            path (str): Location of the item.
-            parent_uid (str, optional): Parent of the item in the treeview. Defaults to "".
-
-        Returns:
-            str: The unique identifier of the inserted item.
-        '''
-        uid = self.treeview.insert(parent_uid, tk.END, text=name, tags=("fstag",), image=self.get_icon(path))
-        self.directories[uid] = path
-
-        return uid
-
-    def load_tree(self, path: str, parent_uid: str = "") -> None:
-        '''Loads the content of the directory `path` in the treeview and in `self.directories`.
-
-        Args:
-            path (str): Location of the directory
-            parent_uid (str, optional): Parent unique identifier. Defaults to "".
-        '''
-        for fsobj in self.listdir(path):
-
-            fullpath: str = join(path, fsobj)
-            child: str = self.insert_item(fsobj, fullpath, parent_uid)
-
-            if isdir(fullpath):
-
-                for sub_fsobj in self.listdir(fullpath):
-                    self.insert_item(sub_fsobj, join(fullpath, sub_fsobj), child)
-
-    def load_subitems(self, uid: str) -> None:
-        '''Loads the contents of `uid` if it is a folder.
-
-        Args:
-            uid (str): Unique identifier of the item.
-        '''
-        for child_uid in self.treeview.get_children(uid):
-
-            if isdir(self.directories[child_uid]):
-
-                self.load_tree(self.directories[child_uid], parent_uid=child_uid)
-
-    def event_item_opened(self, event) -> None:
-        '''Event invoked when a an item is opened.
-        It loads the contents of of that item the the treeview and updated `self.directories`.
-
-        Note that it does not distinguishes between files and folders. If the event is triggered
-        with a file, which obviously has not items inside, it will runs anyway but do nothing.
-
-        Args:
-            event (_type_): Tkinter event argument.
-        '''
-        uid: str = self.treeview.selection()[0]
-        self.load_subitems(uid)
+from constants import *
 
 
-main_window = tk.Tk()
-app = TreeDirectory(main_window)
-app.mainloop()
+class Main_frame(tk.Frame):
+
+    def __init__(self, parent: tk.Tk) -> None:
+
+        tk.Frame.__init__(self, parent)
+        self.parent = parent
+
+        self.parent.title("Subir examen a universidad")
+        self.parent.resizable(False, False)
+
+        universidad_field = tk.Label(self.parent, text="Universidad", width=20)
+        universidad_field.grid(column=0, row=0)
+
+        self.universidad_combobox = ttk.Combobox(
+            self.parent, values=list(ASIGNATURAS.keys()), width=60)
+        self.universidad_combobox.bind("<<ComboboxSelected>>", self._subjects)
+        self.universidad_combobox.grid(column=1, row=0)
+
+    def _subjects(self, *args) -> None:
+
+        self.subjects_label = tk.Label(
+            self.parent, text="Asignaturas", width=20)
+        self.subjects_label.grid(column=0, row=1)
+
+        self.__subjects = list(
+            ASIGNATURAS[self.universidad_combobox.get()].keys())
+        self.__subjects.sort()
+
+        self.subjects_combobox = ttk.Combobox(
+            self.parent, values=self.__subjects, width=60)
+        self.subjects_combobox.bind("<<ComboboxSelected>>", self._askfile)
+        self.subjects_combobox.grid(column=1, row=1)
+
+    def _askfile(self, *args) -> None:
+
+        self.file_label = tk.Label(self.parent, text="Examen", width=20)
+        self.file_label.grid(column=0, row=2)
+
+        self.__subjects = list(
+            ASIGNATURAS[self.universidad_combobox.get()].keys())
+        self.__subjects.sort()
+
+        self.file_label = tk.Label(self.parent, text="", width=20)
+        self.file_label.grid(column=1, row=2)
+
+        self.subjects_button = tk.Button(
+            self.parent, text="Examinar", command=self._search_file)
+        self.subjects_button.grid(column=2, row=2)
+
+        self.upload_button = tk.Button(self.parent, text="Subir", command=lambda: Exam(self.universidad_combobox.get(), self.subjects_combobox.get(
+        ), self.file).create_exam(self.filename, True, self.minutes_entry.get(), self.points_per_question_entry.get()))
+        self.upload_button.grid(column=1, row=5)
+
+    def _search_file(self):
+
+        self.file = filedialog.askopenfilename(initialdir="/")
+        self.filename = self.file.split('/')[-1]
+
+        self.file_label = tk.Label(self.parent, text=self.filename, width=60)
+        self.file_label.grid(column=1, row=2)
+
+        self.minutes_label = tk.Label(
+            self.parent, text="Duración (minutos)", width=20)
+        self.minutes_label.grid(column=0, row=3)
+
+        self.minutes_entry = tk.Entry(self.parent, justify="left", width=20)
+        self.minutes_entry.grid(column=1, row=3)
+
+        self.points_per_question_label = tk.Label(
+            self.parent, text="Puntos por pregunta:", width=20)
+        self.points_per_question_label.grid(column=0, row=4)
+
+        self.points_per_question_entry = tk.Entry(
+            self.parent, justify="left", width=20)
+        self.points_per_question_entry.grid(column=1, row=4)
+
+
+if __name__ == "__main__":
+    ROOT = tk.Tk()
+    ROOT.geometry("600x300")
+    APP = Main_frame(parent=ROOT)
+    APP.mainloop()
+    ROOT.destroy()
