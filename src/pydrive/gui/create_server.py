@@ -8,9 +8,9 @@ from core.server import Server
 
 class CreateServerFrame(tk.Frame):
 
-    def __init__(self, parent: tk.Tk) -> None:
+    def __init__(self, parent: tk.Tk, *args, **kwargs) -> None:
 
-        tk.Frame.__init__(self, parent)
+        super().__init__(parent, *args, **kwargs)
         self.parent = parent
 
         self.parent.title("Create server")
