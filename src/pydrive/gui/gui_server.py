@@ -93,6 +93,11 @@ class TreeDirectory(ttk.Frame):
                     self.insert_item(sub_fsobj, join(fullpath, sub_fsobj), child)
 
     def load_subitems(self, uid: str) -> None:
+        '''Loads the contents of `uid` if it is a folder.
+
+        Args:
+            uid (str): Unique identifier of the item.
+        '''
         for child_uid in self.treeview.get_children(uid):
 
             if isdir(self.directories[child_uid]):
