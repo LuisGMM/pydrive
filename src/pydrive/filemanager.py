@@ -6,7 +6,7 @@ from typing import List, Union
 
 class Path():
 
-    def __init__(self, parent: Path , children: List[Path], contains: Union[File, Folder] ) -> None:
+    def __init__(self, parent: Path , children: List[Path], contains: Union[File, Folder]) -> None:
 
         self.parent = parent
         self.children = children
