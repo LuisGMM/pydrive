@@ -47,4 +47,16 @@ class TreeDirectory(ttk.Frame):
             
             return []
 
-    
+    def get_icon(self, path: str)-> tk.PhotoImage:
+        '''Get the corresponding image depending if `path` corresponds to a file or a folder.
+
+        Args:
+            path (str): Directory of the item we want an icon for.
+
+        Returns:
+            tk.PhotoImage: Icon image corresponding to `path`.
+        '''
+        return self.folder_image if isdir(path) else self.file_image
+
+    def insert_item(self, name: str, path: str, parent_uid: str = "") -> str:
+        
