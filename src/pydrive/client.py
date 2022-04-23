@@ -64,15 +64,3 @@ class user(socket.socket):
         client.send(send_length)
         client.send(message)
         print(client.recv(2048))
-
-
-
-if __name__ == '__main__':
-
-    message_length: int = 100
-
-    send_length: bytes = str(message_length).encode(FORMAT)
-    send_length += b' ' * (HEADER - len(send_length))
-    send_length2 = bin(message_length).encode(FORMAT)
-
-    print(send_length, send_length2)
