@@ -34,20 +34,20 @@ class TreeDirectory(ttk.Frame):
         Is there is no permission to acces `path` it returns an empty list.
 
         Args:
-            path (str): Path directory to explore its contents. 
+            path (str): Path directory to explore its contents.
 
         Returns:
             list: Contains the names of the directories (folders and files) in that path.
         '''
         try:
             return listdir(path)
-        
+
         except PermissionError as e:
             print(str(e))
-            
+
             return []
 
-    def get_icon(self, path: str)-> tk.PhotoImage:
+    def get_icon(self, path: str) -> tk.PhotoImage:
         '''Get the corresponding image depending if `path` corresponds to a file or a folder.
 
         Args:
@@ -72,7 +72,7 @@ class TreeDirectory(ttk.Frame):
         '''
         uid = self.treeview.insert(parent_uid, tk.END, text=name, tags=("fstag",), image=self.get_icon(path))
         self.directories[uid] = path
-        
+
         return uid
 
     def load_tree(self, path: str, parent_uid: str = "") -> None:
@@ -86,9 +86,9 @@ class TreeDirectory(ttk.Frame):
 
             fullpath: str = join(path, fsobj)
             child: str = self.insert_item(fsobj, fullpath, parent_uid)
-            
+
             if isdir(fullpath):
-            
+
                 for sub_fsobj in self.listdir(fullpath):
                     self.insert_item(sub_fsobj, join(fullpath, sub_fsobj), child)
 
@@ -101,14 +101,14 @@ class TreeDirectory(ttk.Frame):
         for child_uid in self.treeview.get_children(uid):
 
             if isdir(self.directories[child_uid]):
-                
+
                 self.load_tree(self.directories[child_uid], parent_uid=child_uid)
 
     def event_item_opened(self, event) -> None:
         '''Event invoked when a an item is opened.
         It loads the contents of of that item the the treeview and updated `self.directories`.
 
-        Note that it does not distinguishes between files and folders. If the event is triggered 
+        Note that it does not distinguishes between files and folders. If the event is triggered
         with a file, which obviously has not items inside, it will runs anyway but do nothing.
 
         Args:
