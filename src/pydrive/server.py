@@ -59,7 +59,8 @@ def start():
 class server(socket.socket):
 
     def __init__(self, family = socket.AF_INET, type = socket.SOCK_STREAM, addr: Tuple[str, int] = ADDR) -> None:
-        ...
+        super().__init__(family=family, type=type)
+        self.bind(addr)
 
 
 
