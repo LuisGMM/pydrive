@@ -1,8 +1,9 @@
 import tkinter as tk
-from tkinter import ttk
 
 from os import listdir, sep
-from os.path import isdir, join, abspath
+from os.path import abspath, isdir, join
+
+from tkinter import ttk
 
 
 class TreeDirectory(ttk.Frame):
