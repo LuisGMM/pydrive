@@ -27,25 +27,27 @@ class GuiItem(ttk.Frame):
         super().__init__(parent, *args, **kwargs)
         self.grid(column=column, row=row)
 
+        self.gui_image = tk.Label(self)
+        self.gui_image.grid(column=0, row=0)
+        
+        self.gui_name = tk.Label(self)
+        self.gui_name.grid(column=0, row=1)
 
 class GuiFolder(GuiItem, Folder):
 
     def __init__(self, parent: ttk.Frame, row: int, column: int, *args, **kwargs):
         GuiItem.__init__(parent, row, column, *args, **kwargs)
 
-        self.gui_image = tk.Label(self, image=self.image)
-        self.gui_image.grid(column=0, row=0)
-        
-        self.gui_name = tk.Label(self, text=self.name)
-        self.gui_name.grid(column=0, row=1)
-        
+        self.gui_image.configure(image=self.image)
+        self.gui_name.configure(text=self.name)
 
 
 class GuiFile(File):
 
-    def __init__(self, parent, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+    def __init__(self, parent: ttk.Frame, row: int, column: int, *args, **kwargs):
+        GuiItem.__init__(parent, row, column, *args, **kwargs)
 
+        
 
 
 
