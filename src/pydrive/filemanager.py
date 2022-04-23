@@ -1,10 +1,12 @@
 
 
-class Path(): 
+class Path():
     raise NotImplementedError()
 
-class File(): 
+
+class File():
     raise NotImplementedError()
 
-class Folder(): 
+
+class Folder():
     raise NotImplementedError()
