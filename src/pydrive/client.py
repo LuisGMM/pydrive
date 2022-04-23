@@ -31,3 +31,8 @@ send('Hello World')
 send('Hello World')
 
 send(DISCONNECT)
+
+
+class user(socket.socket):
+
+    raise NotImplementedError()
