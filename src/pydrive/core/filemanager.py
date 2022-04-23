@@ -9,7 +9,7 @@ from user import User
 
 class Directory():
 
-    def __init__(self, parent: Directory , children: List[Directory], contains: List[File]) -> None:
+    def __init__(self, parent: Directory, children: List[Directory], contains: List[File]) -> None:
 
         self.parent = parent
         self.children = children
