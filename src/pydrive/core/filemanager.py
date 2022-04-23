@@ -14,14 +14,15 @@ class Item():
     
     def __init__(self, path: str):    
         
-        self.path = path
+        self.path = path.replace('\\', '/')
+        self.name = self.path.split('/')[-1]
         self.isdir = True if isdir(self.path) else False
 
 
 class Directory(Item):
 
-    def __init__(self, parent: Directory = None, children: List[Directory] = None, contains: List[File] = None) -> None:
-
+    def __init__(self, path: str, parent: Directory = None, children: List[Directory] = None, contains: List[File] = None) -> None:
+        super().__init__(path)
         self.parent = parent
         self.children = children
         self.contains = contains
@@ -29,8 +30,8 @@ class Directory(Item):
 
 class File(Item):
 
-    def __init__(self, from_path: str = None, name: str = None, modified: List[Tuple[datetime, User]] = None) -> None:
-
+    def __init__(self, path: str, from_path: str = None, name: str = None, modified: List[Tuple[datetime, User]] = None) -> None:
+        super().__init__(path)
         self.from_path = from_path
         self.name = name
         self.modified = modified
