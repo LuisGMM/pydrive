@@ -117,6 +117,8 @@ class TreeDirectory(ttk.Frame):
         self.load_subitems(uid)
 
 
-main_window = tk.Tk()
-app = TreeDirectory(main_window)
-app.mainloop()
+if __name__ == '__main__':
+
+    main_window = tk.Tk()
+    app = TreeDirectory(main_window)
+    app.mainloop()
