@@ -6,8 +6,12 @@ from typing import List, Tuple
 
 from user import User
 
+class Item():
+    
+    def __init__(self, path: str, )
 
-class Directory():
+
+class Directory(Item):
 
     def __init__(self, parent: Directory = None, children: List[Directory] = None, contains: List[File] = None) -> None:
 
@@ -16,7 +20,7 @@ class Directory():
         self.contains = contains
 
 
-class File():
+class File(Item):
 
     def __init__(self, from_path: str = None, name: str = None, modified: List[Tuple[datetime, User]] = None) -> None:
 
