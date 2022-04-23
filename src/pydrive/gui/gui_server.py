@@ -31,7 +31,13 @@ class CreateServerFrame(tk.Frame):
         self.default_port_button = tk.Button(self.parent, text="Default", command=self._search_default_port)
         self.default_port_button.grid(column=2, row=1)
 
+        self.ip_label = tk.Label(self.parent, text="Ip", width=20)
+        self.ip_label.grid(column=0, row=2)
 
+        self.ip_entry = tk.Entry()
+        self.ip_entry.grid(column=1, row=2)
+
+        
 
 if __name__ == "__main__":
     ROOT = tk.Tk()
