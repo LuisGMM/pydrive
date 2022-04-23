@@ -6,3 +6,6 @@ from os import listdir, sep
 from os.path import isdir, join, abspath
 
 
+class TreeDirectory(ttk.Frame):
+
+    ... 
