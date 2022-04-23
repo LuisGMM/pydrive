@@ -18,14 +18,14 @@ class CreateServerFrame(tk.Frame):
         self.parent.title("Create server")
         self.parent.resizable(False, False)
 
-        server_name_label: tk.Label = tk.Label(self.parent, text="Server Name:", width=20)
-        server_name_label.grid(column=0, row=0)
+        server_name_label: tk.Label = tk.Label(self.parent, text="Server Name: ", width=20, anchor='e', padx=10)
+        server_name_label.grid(column=0, row=0, sticky='nsew')
 
         self.server_name_entry: tk.Entry = tk.Entry(self.parent)
         self.server_name_entry.grid(column=1, row=0)
 
-        self.port_label: tk.Label = tk.Label(self.parent, text="Port:", width=20)
-        self.port_label.grid(column=0, row=1)
+        self.port_label: tk.Label = tk.Label(self.parent, text="Port: ", width=20, anchor='e', padx=10)
+        self.port_label.grid(column=0, row=1, sticky='nsew')
 
         self.port_entry: tk.Entry = tk.Entry(self.parent)
         self.port_entry.grid(column=1, row=1)
@@ -33,8 +33,8 @@ class CreateServerFrame(tk.Frame):
         self.default_port_button: tk.Button = tk.Button(self.parent, text="Default", command=self._cmd_search_default_port)
         self.default_port_button.grid(column=2, row=1)
 
-        self.ip_label: tk.Label = tk.Label(self.parent, text="Ip:", width=20)
-        self.ip_label.grid(column=0, row=2)
+        self.ip_label: tk.Label = tk.Label(self.parent, text="Ip:", width=20, anchor='e', padx=10)
+        self.ip_label.grid(column=0, row=2, sticky='nsew')
 
         self.ip_entry: tk.Entry = tk.Entry(self.parent)
         self.ip_entry.grid(column=1, row=2)
@@ -42,8 +42,8 @@ class CreateServerFrame(tk.Frame):
         self.default_ip_button: tk.Button = tk.Button(self.parent, text="Default", command=self._cmd_search_default_ip)
         self.default_ip_button.grid(column=2, row=2)
 
-        self.root_label: tk.Label = tk.Label(self.parent, text="Root directory:", width=20)
-        self.root_label.grid(column=0, row=3)
+        self.root_label: tk.Label = tk.Label(self.parent, text="Root directory: ", width=20, anchor='e', padx=10)
+        self.root_label.grid(column=0, row=3, sticky='nsew')
 
         self.root_entry: tk.Entry = tk.Entry(self.parent)
         self.root_entry.grid(column=1, row=3)
