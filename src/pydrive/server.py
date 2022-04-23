@@ -1,4 +1,6 @@
 
+from __future__ import annotations
+
 from typing import Tuple
 import socket
 import threading
@@ -24,6 +26,8 @@ class Server(socket.socket):
         self._family = family
         self._type = type
         self._addr = addr
+    
+    def __new__(cls: Server, *args, **kwargs) -> Server: ...
 
     def start(self) -> None:
 
@@ -70,3 +74,4 @@ if __name__ == '__main__':
 
     test_server = Server()
     test_server.start()
+
