@@ -46,7 +46,13 @@ class CreateServerFrame(tk.Frame):
         self.root_entry = tk.Entry()
         self.root_entry.grid(column=1, row=3)
 
-        
+        self.search_root_button = tk.Button(self.parent, text="Search", command=self._search_root)
+        self.search_root_button.grid(column=2, row=3)
+
+        self.create_button = tk.Button(self.parent, text="Create", command=lambda: True)
+        self.create_button.grid(column=1, row=5)
+
+    
 
 if __name__ == "__main__":
     ROOT = tk.Tk()
