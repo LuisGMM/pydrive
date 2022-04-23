@@ -7,6 +7,8 @@ from typing import List, Tuple
 from os import listdir, sep
 from os.path import abspath, isdir, join
 
+import tkinter as tk
+
 
 from user import User
 
@@ -16,7 +18,20 @@ class Item():
         
         self.path = path.replace('\\', '/')
         self.name = self.path.split('/')[-1]
-        self.isdir = True if isdir(self.path) else False
+    
+    def get_image(self, path: str) -> tk.PhotoImage:
+        '''Get the corresponding image depending if `path` corresponds to a file or a folder.
+
+        Args:
+            path (str): Directory of the item we want an icon for.
+
+        Returns:
+            tk.PhotoImage: Icon image corresponding to `path`.
+        '''
+        if isdir(path):
+            return tk.PhotoImage(file='src/pydrive/gui/images/folder.png')
+        else:
+            return tk.PhotoImage(file='src/pydrive/gui/images/file.png')
 
 
 class Directory(Item):
