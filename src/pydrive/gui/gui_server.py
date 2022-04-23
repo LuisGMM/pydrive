@@ -59,5 +59,18 @@ class TreeDirectory(ttk.Frame):
         return self.folder_image if isdir(path) else self.file_image
 
     def insert_item(self, name: str, path: str, parent_uid: str = "") -> str:
+        '''Inserts the item located at `path` inside its parent `parent_uid` in the treeview
+        and store the item in `self.directories`.
 
+        Args:
+            name (str): Text identifying the item in the treeview.
+            path (str): Location of the item.
+            parent_uid (str, optional): Parent of the item in the treeview. Defaults to "".
 
+        Returns:
+            str: The unique identifier of the inserted item.
+        '''
+        uid = self.treeview.insert(parent_uid, tk.END, text=name, tags=("fstag",), image=self.get_icon(path))
+        self.directories[uid] = path
+        
+        return uid
