@@ -2,13 +2,14 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import List, Tuple, Union
+from typing import List, Tuple
 
 from user import User
 
-class Path():
 
-    def __init__(self, parent: Path , children: List[Path], contains: Union[File, Folder]) -> None:
+class Directory():
+
+    def __init__(self, parent: Directory , children: List[Directory], contains: List[File]) -> None:
 
         self.parent = parent
         self.children = children
@@ -26,10 +27,6 @@ class File():
         self.file = self.get_file()
 
     def get_file(self) -> bytes:
-        return open(self.from_path, 'rb').read()
-        
-        
 
-
-class Folder():
-    pass
+        with open(self.from_path, 'rb') as f:
+            return f.read()
