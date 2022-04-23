@@ -35,6 +35,7 @@ class Server(socket.socket):
             cls.__created = True
             return super().__new__(cls, *args, **kwargs)
 
+        raise TypeError('Cannot create more than one server.')
 
     def start(self) -> None:
 
