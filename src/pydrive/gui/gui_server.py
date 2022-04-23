@@ -40,6 +40,13 @@ class CreateServerFrame(tk.Frame):
         self.default_ip_button = tk.Button(self.parent, text="Default", command=self._search_default_ip)
         self.default_ip_button.grid(column=2, row=2)
 
+        self.root_label = tk.Label(self.parent, text="Root directory", width=20)
+        self.root_label.grid(column=0, row=3)
+
+        self.root_entry = tk.Entry()
+        self.root_entry.grid(column=1, row=3)
+
+        
 
 if __name__ == "__main__":
     ROOT = tk.Tk()
