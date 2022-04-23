@@ -17,57 +17,58 @@ RECEIVED = 'RECEIVED'
 # server.bind(ADDR)
 
 
-def handle_client(conn, addr):
-    print(f'New connection {addr} .')
-    connected: bool = True
+# def handle_client(conn, addr):
+#     print(f'New connection {addr} .')
+#     connected: bool = True
 
-    while connected:
+#     while connected:
 
-        msg_length = conn.recv(HEADER).decode(FORMAT)
+#         msg_length = conn.recv(HEADER).decode(FORMAT)
 
-        if not msg_length:
-            continue
+#         if not msg_length:
+#             continue
         
-        msg_length = int(msg_length)
-        msg = conn.recv(msg_length).decode(FORMAT)
+#         msg_length = int(msg_length)
+#         msg = conn.recv(msg_length).decode(FORMAT)
 
-        if msg == DISCONNECT:
-            connected = False
-            print(f'{addr} disconnected.')
-            continue
+#         if msg == DISCONNECT:
+#             connected = False
+#             print(f'{addr} disconnected.')
+#             continue
 
-        print(f'{addr} {msg}.')
-        conn.send(RECEIVED.encode(FORMAT))
+#         print(f'{addr} {msg}.')
+#         conn.send(RECEIVED.encode(FORMAT))
 
-    conn.close()
+#     conn.close()
 
 
-def start():
+# def start():
 
-    server.listen()
-    print(f'Server is listening on {SERVER}')
-    while True:
+#     server.listen()
+#     print(f'Server is listening on {SERVER}')
+#     while True:
 
-        conn, addr = server.accept()
-        thread = threading.Thread(target=handle_client, args=(conn, addr))
-        thread.start()
+#         conn, addr = server.accept()
+#         thread = threading.Thread(target=handle_client, args=(conn, addr))
+#         thread.start()
 
-        print(f'Active connections {threading.activeCount() - 1}')
+#         print(f'Active connections {threading.activeCount() - 1}')
 
 
 
 class server(socket.socket):
 
     def __init__(self, family = socket.AF_INET, type = socket.SOCK_STREAM, addr: Tuple[str, int] = ADDR) -> None:
+        
         super().__init__(family=family, type=type)
         self.bind(addr)
 
-        self.family = family
-        self.type = type
-        self.addr = addr
+        self._family = family
+        self._type = type
+        self._addr = addr
 
 
-    def start(self):
+    def start(self) -> None:
 
         self.listen()
         
@@ -82,7 +83,7 @@ class server(socket.socket):
             print(f'Active connections {threading.activeCount() - 1}')
 
 
-    def __handle_client(self, conn: socket.socket, addr: Tuple[str, int]):
+    def __handle_client(self, conn: socket.socket, addr: Tuple[str, int]) -> None:
 
         print(f'New connection {addr} .')
         connected: bool = True
@@ -111,4 +112,6 @@ class server(socket.socket):
 
 
 if __name__ == '__main__':
-    start()
+    
+    test_server = server()
+    test_server.start()
