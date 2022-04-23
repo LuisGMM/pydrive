@@ -44,7 +44,7 @@ class Directory(Item):
     @property
     def children(self) -> list:
         '''Returns a list with the items in the directory.
-        If there is no permission to acces `path` it returns an empty list.
+        If there is no permission to access the directory, it returns an empty list.
 
         Args:
             path (str): Path directory to explore its contents.
