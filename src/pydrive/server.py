@@ -59,9 +59,9 @@ RECEIVED = 'RECEIVED'
 class server(socket.socket):
 
     def __init__(self, family = socket.AF_INET, type = socket.SOCK_STREAM, addr: Tuple[str, int] = ADDR) -> None:
-        
+
         super().__init__(family=family, type=type)
-        self.bind(addr)
+        super().bind(addr)
 
         self._family = family
         self._type = type
@@ -70,13 +70,13 @@ class server(socket.socket):
 
     def start(self) -> None:
 
-        self.listen()
+        super().listen()
         
         print(f'Server is listening on {SERVER}')
         
         while True:
 
-            conn, addr = self.accept()
+            conn, addr = super().accept()
             thread = threading.Thread(target=self.__handle_client, args=(conn, addr))
             thread.start()
 
