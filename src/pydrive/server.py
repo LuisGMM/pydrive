@@ -58,7 +58,8 @@ def start():
 
 class server(socket.socket):
 
-    raise NotImplementedError()
+    def __init__(self, family = socket.AF_INET, type = socket.SOCK_STREAM, addr: Tuple[str, int] = ADDR) -> None:
+        ...
 
 
 
