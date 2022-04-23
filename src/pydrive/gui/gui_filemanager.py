@@ -1,23 +1,26 @@
 
 import tkinter as tk
 
+from os import listdir, sep
+from os.path import abspath, isdir, join
+
 from tkinter import ttk
 
 from PIL import ImageTk, Image
-
+from pyparsing import col 
 
 from ..core.filemanager import Folder, File
 
 
 class GuiItem(ttk.Frame):
-
+    
     def __init__(self, parent: ttk.Frame, row: int, column: int, *args, **kwargs) -> None:
         super().__init__(parent, *args, **kwargs)
         self.grid(column=column, row=row)
 
         self.gui_image = tk.Label(self)
         self.gui_image.grid(column=0, row=0)
-
+        
         self.gui_name = tk.Label(self)
         self.gui_name.grid(column=0, row=1)
 
@@ -39,7 +42,7 @@ class GuiFile(File):
         File.__init__(path)
 
         self.gui_image.configure(image=self.image)
-        self.gui_name.configure(text=self.name)
+        self.gui_name.configure(text=self.name)    
 
 
 class WindowManager(ttk.Frame):
@@ -52,6 +55,7 @@ class WindowManager(ttk.Frame):
         self.elem = GuiFolder(self)
 
         # self.grid(row=0, column=0, sticky='nsew')
+
 
 
 if __name__ == '__main__':
