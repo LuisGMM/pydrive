@@ -1,9 +1,7 @@
 
-import tkinter as tk
-
-from tkinter import filedialog
-
 import socket
+import tkinter as tk
+from tkinter import filedialog
 
 from core.server import Server
 
