@@ -30,4 +30,13 @@ class TreeDirectory(ttk.Frame):
         self.load_tree(abspath(sep))
 
     def listdir(self, path: str) -> list:
+
+        try:
+            return listdir(path)
         
+        except PermissionError as e:
+            print(str(e))
+            
+            return []
+
+    
