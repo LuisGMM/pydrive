@@ -35,4 +35,11 @@ send(DISCONNECT)
 
 class user(socket.socket):
 
-    raise NotImplementedError()
+    def __init__(self, id: str, username: str, password: str, email: str, family = socket.AF_INET, type = socket.SOCK_STREAM) -> None:
+        
+        self.id = id
+        self.username = username
+        self.password = password
+        self.email = email
+    
+    
