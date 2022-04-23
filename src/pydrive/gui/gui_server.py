@@ -76,3 +76,15 @@ class TreeDirectory(ttk.Frame):
         return uid
 
     def load_tree(self, path: str, parent_uid: str = "") -> None:
+
+        for fsobj in self.listdir(path):
+
+            fullpath: str = join(path, fsobj)
+            child: str = self.insert_item(fsobj, fullpath, parent_uid)
+            
+            if isdir(fullpath):
+            
+                for sub_fsobj in self.listdir(fullpath):
+                    self.insert_item(sub_fsobj, join(fullpath, sub_fsobj), child)
+
+
