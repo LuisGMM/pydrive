@@ -116,3 +116,8 @@ class TreeDirectory(ttk.Frame):
         '''
         uid: str = self.treeview.selection()[0]
         self.load_subitems(uid)
+
+
+main_window = tk.Tk()
+app = TreeDirectory(main_window)
+app.mainloop()
