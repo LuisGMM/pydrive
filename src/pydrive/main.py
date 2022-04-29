@@ -1,7 +1,7 @@
 
-import tkinter as tk
+# import tkinter as tk
 
-from gui import create_server, gui_filemanager
+from gui import gui_filemanager
 
 # ROOT = tk.Tk()
 # ROOT.geometry("600x300")
