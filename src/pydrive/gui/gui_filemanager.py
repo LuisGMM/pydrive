@@ -6,7 +6,7 @@ import tkinter as tk
 
 from tkinter import ttk
 
-from PIL import ImageTk, Image
+# from PIL import ImageTk, Image
 
 from core.filemanager import Folder, File
 
@@ -14,7 +14,7 @@ from core.filemanager import Folder, File
 class GuiItem(ttk.Frame):
 
     def __init__(self, parent: ttk.Frame, row: int, column: int, *args, **kwargs) -> None:
-        super().__init__(parent, *args, **kwargs)
+        ttk.Frame.__init__(self, parent, *args, **kwargs)
         self.grid(column=column, row=row)
 
         self.gui_image = tk.Label(self)
@@ -27,8 +27,8 @@ class GuiItem(ttk.Frame):
 class GuiFolder(GuiItem, Folder):
 
     def __init__(self, parent: ttk.Frame, row: int, column: int, path: str, *args, **kwargs):
-        super(GuiItem, self).__init__(parent, row, column, *args, **kwargs)
-        super(Folder, self).__init__(path)
+        GuiItem.__init__(self, parent, row, column, *args, **kwargs)
+        Folder.__init__(self, path)
 
         self.gui_image.configure(image=self.image)
         self.gui_name.configure(text=self.name)
@@ -37,8 +37,8 @@ class GuiFolder(GuiItem, Folder):
 class GuiFile(File):
 
     def __init__(self, parent: ttk.Frame, row: int, column: int, path: str, *args, **kwargs):
-        GuiItem.__init__(parent, row, column, *args, **kwargs)
-        File.__init__(path)
+        GuiItem.__init__(self, parent, row, column, *args, **kwargs)
+        File.__init__(self, path)
 
         self.gui_image.configure(image=self.image)
         self.gui_name.configure(text=self.name)
@@ -47,8 +47,8 @@ class GuiFile(File):
 class WindowManager(ttk.Frame):
 
     def __init__(self, parent: ttk.Frame, path: str = None, *args, **kwargs) -> None:
+        ttk.Frame.__init__(self, parent, *args, **kwargs)
 
-        super().__init__(parent, *args, **kwargs)
         self.parent = parent
 
         self.elem = GuiFolder(self, 0, 0, '/home/luisgmm/Documents/GitHub/pydrive/src/pydrive/gui')
@@ -58,16 +58,14 @@ class WindowManager(ttk.Frame):
 
 
 def main():
-    
     root = tk.Tk()
-    root.geometry("700x350")
+    # root.geometry("700x350")
 
     frame = WindowManager(root)
+    frame.pack()
 
     root.mainloop()
 
 
-
 if __name__ == '__main__':
-
     main()
