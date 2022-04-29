@@ -34,7 +34,7 @@ class GuiFolder(GuiItem, Folder):
         self.gui_name.configure(text=self.name)
 
 
-class GuiFile(File):
+class GuiFile(GuiItem, File):
 
     def __init__(self, parent: ttk.Frame, row: int, column: int, path: str, *args, **kwargs):
         GuiItem.__init__(self, parent, row, column, *args, **kwargs)
@@ -51,9 +51,10 @@ class WindowManager(ttk.Frame):
 
         self.parent = parent
 
-        self.elem = GuiFolder(self, 0, 0, '/home/luisgmm/Documents/GitHub/pydrive/src/pydrive/gui')
+        self.elem = GuiFolder(self, 0, 0, r'C:\Users\luisg\Documents\GitHub\pydrive\src\pydrive\gui')
+        self.elem.grid(row=0,column=0)
         self.elem2 = GuiFile(self, 0, 0, '/home/luisgmm/Documents/GitHub/pydrive/src/pydrive/gui/__init__.py')
-
+        self.elem.grid(row=0,column=1)
         # self.grid(row=0, column=0, sticky='nsew')
 
 
