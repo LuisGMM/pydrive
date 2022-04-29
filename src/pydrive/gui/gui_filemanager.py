@@ -1,8 +1,8 @@
 
 import tkinter as tk
 
-# from os import listdir, sep
-# from os.path import abspath, isdir, join
+from os import listdir, sep
+from os.path import abspath, isdir, join
 
 from tkinter import ttk
 
@@ -50,11 +50,14 @@ class WindowManager(ttk.Frame):
         ttk.Frame.__init__(self, parent, *args, **kwargs)
 
         self.parent = parent
+        self.path = path
+        self.items = {}
 
-        self.elem = GuiFolder(self, 0, 0, r'C:\Users\luisg\Documents\GitHub\pydrive\src\pydrive\gui')
-        self.elem.grid(row=0,column=0)
-        self.elem2 = GuiFile(self, 0, 0, '/home/luisgmm/Documents/GitHub/pydrive/src/pydrive/gui/__init__.py')
-        self.elem.grid(row=0,column=1)
+        for column, name in enumerate(listdir(self.path)):
+
+            abspath = self.path + f'/{name}'
+            self.items[name] = GuiFolder(self, row=0, column=column, path=abspath) if isdir(abspath) else GuiFile(self, row=0, column=column, path=abspath)
+
         # self.grid(row=0, column=0, sticky='nsew')
 
 
@@ -62,7 +65,7 @@ def main():
     root = tk.Tk()
     # root.geometry("700x350")
 
-    frame = WindowManager(root)
+    frame = WindowManager(root, r'C:/Users/luisg/Documents/GitHub/pydrive/src/pydrive/gui')
     frame.pack()
 
     root.mainloop()
