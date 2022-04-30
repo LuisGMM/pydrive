@@ -1,7 +1,7 @@
 
 # import tkinter as tk
 
-from gui import gui_filemanager
+from pydrive.gui import fileexplorer
 
 # ROOT = tk.Tk()
 # ROOT.geometry("600x300")
@@ -9,4 +9,4 @@ from gui import gui_filemanager
 # APP.mainloop()
 # ROOT.destroy()
 
-gui_filemanager.main()
+fileexplorer.main()
