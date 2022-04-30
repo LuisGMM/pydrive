@@ -9,7 +9,7 @@ from tkinter import ttk
 
 class TreeDirectory(ttk.Frame):
 
-    def __init__(self, main_window: ttk.Frame) -> None:
+    def __init__(self, main_window: ttk.Frame, path=abspath(sep)) -> None:
         super().__init__(main_window)
 
         self.treeview: ttk.Treeview = ttk.Treeview(self)
@@ -28,7 +28,7 @@ class TreeDirectory(ttk.Frame):
         self.file_image: tk.PhotoImage = tk.PhotoImage(file='src/pydrive/gui/images/file.png')
         self.folder_image: tk.PhotoImage = tk.PhotoImage(file='src/pydrive/gui/images/folder.png')
 
-        self.load_tree(abspath(sep))
+        self.load_tree(path)
 
     def listdir(self, path: str) -> list:
         '''Returns a list with the directories in that `path`.
