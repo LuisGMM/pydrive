@@ -80,6 +80,8 @@ class WindowManager(ttk.Frame):
         for label in self.items.values():
             label.destroy()
 
+        self.items = {}
+
 def main():
     root = tk.Tk()
     # root.geometry("700x350")
