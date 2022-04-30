@@ -16,3 +16,7 @@ class FileExplorer(tk.Frame):
         # self.parent.title = 'File Explorer'
         self.pack()
 
+        self.treedirectory = TreeDirectory(self, self.path)
+        # self.treedirectory.pack(fill=tk.Y, side=tk.LEFT, expand=tk.YES)
+        self.treedirectory.grid(row=0, column=0, sticky="NSW")
+
