@@ -82,6 +82,12 @@ class WindowManager(ttk.Frame):
 
         self.items = {}
 
+        for column, name in enumerate(listdir(self.path)):
+
+            abspath = self.path + f'/{name}'
+            self.items[name] = GuiFolder(self, row=0, column=column, path=abspath) if isdir(abspath) else GuiFile(self, row=0, column=column, path=abspath)
+
+
 def main():
     root = tk.Tk()
     # root.geometry("700x350")
