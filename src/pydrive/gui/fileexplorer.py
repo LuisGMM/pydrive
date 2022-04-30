@@ -36,3 +36,7 @@ def main():
     frame.pack(fill=tk.BOTH, expand=tk.YES)
 
     root.mainloop()
+
+
+if __name__ == '__main__':
+    main()
