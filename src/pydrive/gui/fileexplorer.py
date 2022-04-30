@@ -27,3 +27,7 @@ class FileExplorer(tk.Frame):
 
 def main():
     root = tk.Tk()
+    # root.geometry("700x350")
+
+    root.title = 'File Explorer'
+    root.iconbitmap(r'C:\Users\luisg\Documents\GitHub\pydrive\src\pydrive\gui\images\folder.png')
