@@ -48,8 +48,8 @@ class GuiFolder(GuiItem, Folder):
 
 class GuiFile(GuiItem, File):
 
-        GuiItem.__init__(self, parent, row, column, *args, **kwargs)
     def __init__(self, master: ttk.Frame, row: int, column: int, path: str, *args, **kwargs):
+        GuiItem.__init__(self, master, row, column, *args, **kwargs)
         File.__init__(self, path)
 
         self.gui_image.configure(image=self.image)
