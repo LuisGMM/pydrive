@@ -25,3 +25,5 @@ class FileExplorer(tk.Frame):
         self.windowmanager.grid(row=0, column=1, sticky="NSW")
 
 
+def main():
+    root = tk.Tk()
