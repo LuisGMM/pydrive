@@ -1,8 +1,8 @@
 
 import tkinter as tk
 
-from os.path import abspath, isdir, join
 from os import listdir
+from os.path import isdir
 
 from tkinter import ttk
 
