@@ -42,6 +42,8 @@ class GuiFolder(GuiItem, Folder):
 
     def open_folder(self, event):
 
+        self.master.path = self.path
+        self.master.update_items()
 
 
 class GuiFile(GuiItem, File):
