@@ -56,6 +56,7 @@ class GuiFile(GuiItem, File):
         self.gui_image.bind("<Button-1>", lambda event: print('hello'))
 
         self.gui_name.configure(text=self.name)
+        self.gui_name.bind("<Button-1>", lambda event: print('hello'))
 
 
 class WindowManager(ttk.Frame):
