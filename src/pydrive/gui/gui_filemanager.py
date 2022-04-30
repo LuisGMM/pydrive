@@ -13,8 +13,8 @@ from pydrive.core.filemanager import Folder, File
 
 class GuiItem(ttk.Frame):
 
-        ttk.Frame.__init__(self, parent, *args, **kwargs)
     def __init__(self, master: ttk.Frame, row: int, column: int, *args, **kwargs) -> None:
+        ttk.Frame.__init__(self, master, *args, **kwargs)
         self.grid(column=column, row=row)
 
         self.gui_image = tk.Label(self)
