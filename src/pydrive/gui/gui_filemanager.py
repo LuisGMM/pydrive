@@ -77,6 +77,8 @@ class WindowManager(ttk.Frame):
 
     def update_items(self):
 
+        for label in self.items.values():
+            label.destroy()
 
 def main():
     root = tk.Tk()
