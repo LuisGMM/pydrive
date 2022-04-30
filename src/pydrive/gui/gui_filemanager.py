@@ -38,6 +38,8 @@ class GuiFolder(GuiItem, Folder):
         self.gui_image.bind("<Button-1>", self.open_folder)
 
         self.gui_name.configure(text=self.name)
+        self.gui_name.bind("<Button-1>", self.open_folder)
+
 
 
 class GuiFile(GuiItem, File):
