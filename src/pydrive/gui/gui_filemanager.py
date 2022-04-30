@@ -64,7 +64,7 @@ class WindowManager(ttk.Frame):
     def __init__(self, master: ttk.Frame, path: str = None, *args, **kwargs) -> None:
         ttk.Frame.__init__(self, master, *args, **kwargs)
 
-        self.parent = parent
+        self.master = master
         self.path = path
         self.items = {}
 
