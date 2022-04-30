@@ -75,6 +75,8 @@ class WindowManager(ttk.Frame):
 
         # self.grid(row=0, column=0, sticky='nsew')
 
+    def update_items(self):
+
 
 def main():
     root = tk.Tk()
