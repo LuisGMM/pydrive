@@ -61,8 +61,8 @@ class GuiFile(GuiItem, File):
 
 class WindowManager(ttk.Frame):
 
-        ttk.Frame.__init__(self, parent, *args, **kwargs)
     def __init__(self, master: ttk.Frame, path: str = None, *args, **kwargs) -> None:
+        ttk.Frame.__init__(self, master, *args, **kwargs)
 
         self.parent = parent
         self.path = path
