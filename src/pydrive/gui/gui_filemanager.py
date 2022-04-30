@@ -35,6 +35,8 @@ class GuiFolder(GuiItem, Folder):
         self.path = path
 
         self.gui_image.configure(image=self.image)
+        self.gui_image.bind("<Button-1>", self.open_folder)
+
         self.gui_name.configure(text=self.name)
 
 
