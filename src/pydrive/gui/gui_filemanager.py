@@ -17,6 +17,8 @@ class GuiItem(ttk.Frame):
         ttk.Frame.__init__(self, master, *args, **kwargs)
         self.grid(column=column, row=row)
 
+        self.master = master
+
         self.gui_image = tk.Label(self)
         self.gui_image.grid(column=0, row=0)
 
