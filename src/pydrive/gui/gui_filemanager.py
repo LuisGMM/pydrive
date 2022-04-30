@@ -28,8 +28,8 @@ class GuiItem(ttk.Frame):
 
 class GuiFolder(GuiItem, Folder):
 
-    def __init__(self, parent: ttk.Frame, row: int, column: int, path: str, *args, **kwargs):
         GuiItem.__init__(self, parent, row, column, *args, **kwargs)
+    def __init__(self, master: ttk.Frame, row: int, column: int, path: str, *args, **kwargs):
         Folder.__init__(self, path)
 
         self.gui_image.configure(image=self.image)
