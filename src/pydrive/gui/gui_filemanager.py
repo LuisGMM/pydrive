@@ -40,6 +40,8 @@ class GuiFolder(GuiItem, Folder):
         self.gui_name.configure(text=self.name)
         self.gui_name.bind("<Button-1>", self.open_folder)
 
+    def open_folder(self, event):
+
 
 
 class GuiFile(GuiItem, File):
