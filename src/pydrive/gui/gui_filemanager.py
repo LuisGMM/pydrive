@@ -32,6 +32,8 @@ class GuiFolder(GuiItem, Folder):
         GuiItem.__init__(self, master, row, column, *args, **kwargs)
         Folder.__init__(self, path)
 
+        self.path = path
+
         self.gui_image.configure(image=self.image)
         self.gui_name.configure(text=self.name)
 
