@@ -8,7 +8,7 @@ from tkinter import ttk
 
 # from PIL import ImageTk, Image
 
-from core.filemanager import Folder, File
+from pydrive.core.filemanager import Folder, File
 
 
 class GuiItem(ttk.Frame):
