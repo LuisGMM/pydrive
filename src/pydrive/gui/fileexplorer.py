@@ -13,3 +13,6 @@ class FileExplorer(tk.Frame):
         self.parent = parent
         self.path = path
 
+        # self.parent.title = 'File Explorer'
+        self.pack()
+
