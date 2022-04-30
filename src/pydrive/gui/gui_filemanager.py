@@ -53,6 +53,8 @@ class GuiFile(GuiItem, File):
         File.__init__(self, path)
 
         self.gui_image.configure(image=self.image)
+        self.gui_image.bind("<Button-1>", lambda event: print('hello'))
+
         self.gui_name.configure(text=self.name)
 
 
