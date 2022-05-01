@@ -85,7 +85,14 @@ class Folder(Item):
 
 
 class File(Item):
+    '''File object.
 
+    Attributes:
+        path (str): The location of the item.
+        name (str): The name of the item. It includes its extension.
+        modified (List[Tuple[datetime, User]]): Contains who and when modified this file.
+        image (tk.PhotoImage): Image of a folder.
+    '''
     def __init__(self, path: str, modified: List[Tuple[datetime, User]] = None) -> None:
         super().__init__(path)
         self.modified = modified
