@@ -15,7 +15,7 @@ from pydrive.core.user import User
 
 class Item():
 
-    def __init__(self, path: str):
+    def __init__(self, path: str) -> None:
 
         self.path = path.replace('\\', '/')
         self.name = self.path.split('/')[-1]
