@@ -27,7 +27,6 @@ class Item(ABC):
         Args:
             path (str): The location of the item.
         '''
-
         self.path = path.replace('\\', '/')
         self.name = self.path.split('/')[-1]
 
