@@ -16,6 +16,11 @@ from pydrive.core.user import User
 class Item():
 
     def __init__(self, path: str) -> None:
+        '''Instantiate object.
+
+        Args:
+            path (str): The location of the item.
+        '''
 
         self.path = path.replace('\\', '/')
         self.name = self.path.split('/')[-1]
