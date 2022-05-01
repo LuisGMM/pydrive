@@ -94,6 +94,12 @@ class File(Item):
         image (tk.PhotoImage): Image of a folder.
     '''
     def __init__(self, path: str, modified: List[Tuple[datetime, User]] = None) -> None:
+        '''Instantiate object.
+
+        Args:
+            path (str): Location of the file.
+            modified (List[Tuple[datetime, User]], optional): Contains who and when modified this file. Defaults to None.
+        '''
         super().__init__(path)
         self.modified = modified
         self.image = self.get_image()
