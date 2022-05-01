@@ -51,7 +51,7 @@ class Folder(Item):
     Attributes:
         path (str): The location of the item.
         name (str): The name of the item. It includes its extension.
-        parent (str): Parent directory of the folder. 
+        parent (str): Parent directory of the folder.
         image (tk.PhotoImage): Image of a folder.
     '''
     def __init__(self, path: str) -> None:
