@@ -12,7 +12,13 @@ from pydrive.core.filemanager import Folder, File
 
 
 class GuiItem(ttk.Frame):
+    '''Frame. Graphic version of Item class, it is meant to be parent of folders and files.
 
+    Attributes:
+        master (ttk.Frame): Parent of this frame.
+        gui_image (tk.Label): Image of the item stored in a label.
+        gui_name (tk.Label): Name of the item in a label.
+    '''
     def __init__(self, master: ttk.Frame, row: int, column: int, *args, **kwargs) -> None:
         ttk.Frame.__init__(self, master, *args, **kwargs)
         self.grid(column=column, row=row)
