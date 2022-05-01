@@ -10,14 +10,20 @@ from tkinter import ttk
 class TreeDirectory(ttk.Frame):
     '''Frame containing a directory explorer in form of tree, where folders can be expanded and files can be executed.
 
-    def __init__(self, main_window: ttk.Frame, path=abspath(sep)) -> None:
-        super().__init__(main_window)
     Attributes:
         treeview (tk.TreeView): Tree directory explorer.
         directories (dict[str, str]): Key: Identifier of an Item (Folder or File). Value: path of the item.
         foler_image (tk.PhotoImage): Image of a folder.
         file_image (tk.PhotoImage): Image of a file.
     '''
+    def __init__(self, master: ttk.Frame, path=abspath(sep)) -> None:
+        '''Instantiate object.
+
+        Args:
+            master (ttk.Frame): Parent of the object.
+            path (str, optional): Initial path of the tree. Defaults to abspath(sep).
+        '''
+        super().__init__(master)
 
         self.treeview: ttk.Treeview = ttk.Treeview(self)
         self.treeview.grid(row=0, column=0, sticky='nsew')
