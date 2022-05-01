@@ -14,7 +14,12 @@ from pydrive.core.user import User
 
 
 class Item():
+    '''Parent class to represent a Folder or a File.
 
+    Attributes:
+        path (str): The location of the item.
+        name (str): The name of the item. It includes its extension.
+    '''
     def __init__(self, path: str) -> None:
         '''Instantiate object.
 
