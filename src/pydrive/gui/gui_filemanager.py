@@ -20,6 +20,13 @@ class GuiItem(ttk.Frame):
         gui_name (tk.Label): Name of the item in a label.
     '''
     def __init__(self, master: ttk.Frame, row: int, column: int, *args, **kwargs) -> None:
+        '''Instantiate object.
+
+        Args:
+            master (ttk.Frame): Parent of this frame.
+            row (int): Row to place this frame.
+            column (int): Column to place this frame.
+        '''
         ttk.Frame.__init__(self, master, *args, **kwargs)
         self.grid(column=column, row=row)
 
