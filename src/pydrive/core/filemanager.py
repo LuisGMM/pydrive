@@ -49,6 +49,8 @@ class Folder(Item):
     '''Folder of a directory.
 
     Attributes:
+        path (str): The location of the item.
+        name (str): The name of the item. It includes its extension.
         parent (str): Parent directory of the folder. 
         image (tk.PhotoImage): Image of a folder.
     '''
