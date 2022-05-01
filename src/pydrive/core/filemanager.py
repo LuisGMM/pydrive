@@ -53,7 +53,11 @@ class Folder(Item):
         image (tk.PhotoImage): Image of a folder.
     '''
     def __init__(self, path: str) -> None:
+        '''Instantiate object.
 
+        Args:
+            path (str): Location of the folder.
+        '''
         super().__init__(path)
         self.parent = self.path.split('/')[-2]
         self.image = self.get_image()
