@@ -1,5 +1,6 @@
 
 from __future__ import annotations
+from abc import ABC
 
 from datetime import datetime
 from typing import List, Tuple
@@ -13,7 +14,7 @@ from PIL import ImageTk, Image
 from pydrive.core.user import User
 
 
-class Item():
+class Item(ABC):
     '''Parent class to represent a Folder or a File.
 
     Attributes:
