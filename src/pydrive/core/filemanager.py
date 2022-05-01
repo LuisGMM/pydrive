@@ -46,7 +46,12 @@ class Item(ABC):
 
 
 class Folder(Item):
+    '''Folder of a directory.
 
+    Attributes:
+        parent (str): Parent directory of the folder. 
+        image (tk.PhotoImage): Image of a folder.
+    '''
     def __init__(self, path: str) -> None:
 
         super().__init__(path)
