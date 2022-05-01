@@ -133,6 +133,6 @@ class TreeDirectory(ttk.Frame):
 
 if __name__ == '__main__':
 
-    main_window = tk.Tk()
-    app = TreeDirectory(main_window)
+    root = tk.Tk()
+    app = TreeDirectory(root)
     app.mainloop()
