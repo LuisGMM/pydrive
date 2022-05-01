@@ -30,7 +30,7 @@ class TreeDirectory(ttk.Frame):
 
         self.treeview.tag_bind('fstag', '<<TreeviewOpen>>', self.event_item_opened)
 
-        for w in (self, main_window):
+        for w in (self, master):
             w.rowconfigure(0, weight=1)
             w.columnconfigure(0, weight=1)
 
