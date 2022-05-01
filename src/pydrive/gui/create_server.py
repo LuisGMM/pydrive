@@ -3,7 +3,7 @@ import socket
 import tkinter as tk
 from tkinter import filedialog
 
-from core.server import Server
+from pydrive.core.server import Server
 
 
 class CreateServerFrame(tk.Frame):
