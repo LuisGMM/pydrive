@@ -114,8 +114,6 @@ class WindowManager(ttk.Frame):
     @path.setter
     def path(self, path: str) -> None:
         self._path = path
-        self.master.path = self.path
-        self.master.pathbar.configure(text=self.master.path)
         self.update_items()
 
 
