@@ -11,7 +11,8 @@ class FileExplorer(tk.Frame):
         tk.Frame.__init__(self, parent, *args, **kwargs)
 
         self.parent = parent
-        self.path = path
+        self._path = path
+        self.max_path = path
 
         # self.parent.title = 'File Explorer'
         self.pack()
