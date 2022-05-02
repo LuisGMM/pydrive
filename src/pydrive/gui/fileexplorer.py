@@ -17,6 +17,9 @@ class FileExplorer(tk.Frame):
         # self.parent.title = 'File Explorer'
         self.pack()
 
+        self.go_back_button = tk.Button(self, command=self.cmd_go_back, width=2, height=1)
+        self.go_back_button.grid(row=0, column=0, sticky='NES')
+
         self.pathbar = tk.Label(self, text=self.path)
         self.pathbar.grid(row=0, column=0, columnspan=2, sticky='NEWS')
 
