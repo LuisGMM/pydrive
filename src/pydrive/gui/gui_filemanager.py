@@ -107,6 +107,18 @@ class WindowManager(ttk.Frame):
 
         # self.grid(row=0, column=0, sticky='nsew')
 
+    @property
+    def path(self) -> str:
+        return self._path
+
+    @path.setter
+    def path(self, path: str) -> None:
+        self._path = path
+        self.master.path = self.path
+        self.master.pathbar.configure(text=self.master.path)
+        self.update_items()
+
+
     def update_items(self):
 
         for label in self.items.values():
