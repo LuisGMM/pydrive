@@ -42,9 +42,8 @@ class FileExplorer(tk.Frame):
 
         self.windowmanager.path = self.path
 
-
     def cmd_go_back(self):
-        
+
         if self.path != self.max_path:
             self.path = '/'.join(self.path.split('/')[:-1])
 
