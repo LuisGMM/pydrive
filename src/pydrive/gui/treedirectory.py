@@ -2,7 +2,7 @@
 import tkinter as tk
 
 from os import listdir, sep
-from os.path import abspath, isdir, join
+from os.path import abspath, isdir
 
 from tkinter import ttk
 
