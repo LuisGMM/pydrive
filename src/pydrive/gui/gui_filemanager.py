@@ -71,7 +71,17 @@ class GuiFolder(GuiItem, Folder):
 
 
 class GuiFile(GuiItem, File):
+    '''Frame. Graphic version of File.
 
+    Attributes:
+        master (ttk.Frame): Parent of this frame.
+        gui_image (tk.Label): Image of the item stored in a label.
+        gui_name (tk.Label): Name of the item in a label.
+        path (str): The location of the item.
+        name (str): The name of the item. It includes its extension.
+        modified (List[Tuple[datetime, User]]): Contains who and when modified this file.
+        image (tk.PhotoImage): Image of a folder.
+    '''
     def __init__(self, master: ttk.Frame, row: int, column: int, path: str, *args, **kwargs):
         GuiItem.__init__(self, master, row, column, *args, **kwargs)
         File.__init__(self, path)
