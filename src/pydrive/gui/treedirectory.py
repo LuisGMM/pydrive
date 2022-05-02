@@ -104,7 +104,7 @@ class TreeDirectory(ttk.Frame):
             if isdir(fullpath):
 
                 for sub_fsobj in self.listdir(fullpath):
-                    self.insert_item(sub_fsobj, join(fullpath, sub_fsobj), child)
+                    self.insert_item(sub_fsobj, '/'.join([fullpath, sub_fsobj]), child)
 
     def load_subitems(self, uid: str) -> None:
         '''Loads the contents of `uid` if it is a folder.
