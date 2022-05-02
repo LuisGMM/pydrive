@@ -93,7 +93,7 @@ class GuiFile(GuiItem, File):
 
 class WindowManager(ttk.Frame):
 
-    def __init__(self, master: ttk.Frame, path: str = None, *args, **kwargs) -> None:
+    def __init__(self, master, path: str = None, *args, **kwargs) -> None:
         ttk.Frame.__init__(self, master, *args, **kwargs)
 
         self.master = master
