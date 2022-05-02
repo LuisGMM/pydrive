@@ -25,7 +25,7 @@ class FileExplorer(tk.Frame):
 
         self.windowmanager = WindowManager(self, self.path)
         # self.windowmanager.pack(fill=tk.BOTH, side=tk.RIGHT, expand=tk.YES)
-        self.windowmanager.grid(row=0, column=1, sticky="NSW")
+        self.windowmanager.grid(row=1, column=1, sticky="NSW")
 
 
 def main():
