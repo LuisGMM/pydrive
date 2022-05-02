@@ -130,7 +130,7 @@ class TreeDirectory(ttk.Frame):
         uid: str = self.treeview.selection()[0]
         self.load_subitems(uid)
 
-        self.master.windowmanager.path = self.directories[uid]
+        self.master.path = self.directories[uid]
 
 
 if __name__ == '__main__':
