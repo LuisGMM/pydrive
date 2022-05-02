@@ -98,7 +98,7 @@ class TreeDirectory(ttk.Frame):
         '''
         for fsobj in self.listdir(path):
 
-            fullpath: str = join(path, fsobj)
+            fullpath: str = '/'.join([path, fsobj])
             child: str = self.insert_item(fsobj, fullpath, parent_uid)
 
             if isdir(fullpath):
