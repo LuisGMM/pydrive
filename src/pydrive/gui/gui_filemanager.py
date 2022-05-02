@@ -44,9 +44,14 @@ class GuiFolder(GuiItem, Folder):
     '''Frame. Graphic version of Folder.
 
     Attributes:
-
+        master (ttk.Frame): Parent of this frame.
+        gui_image (tk.Label): Image of the item stored in a label.
+        gui_name (tk.Label): Name of the item in a label.
+        path (str): The location of the item.
+        name (str): The name of the item. It includes its extension.
+        parent (str): Parent directory of the folder.
+        image (tk.PhotoImage): Image of a folder.
     '''
-
     def __init__(self, master: ttk.Frame, row: int, column: int, path: str, *args, **kwargs):
         GuiItem.__init__(self, master, row, column, *args, **kwargs)
         Folder.__init__(self, path)
