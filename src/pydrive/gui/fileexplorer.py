@@ -56,7 +56,7 @@ def main():
     root.title = 'File Explorer'
     root.iconbitmap(r'C:\Users\luisg\Documents\GitHub\pydrive\src\pydrive\gui\images\file2.png')
 
-    frame = FileExplorer(root, r'C:/Users/luisg/Documents/GitHub/pydrive/src/pydrive/gui')
+    frame = FileExplorer(root, r'C:/Users/luisg/Documents/GitHub/pydrive')
     frame.pack(fill=tk.BOTH, expand=tk.YES)
 
     root.mainloop()
