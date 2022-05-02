@@ -97,7 +97,7 @@ class WindowManager(ttk.Frame):
         ttk.Frame.__init__(self, master, *args, **kwargs)
 
         self.master = master
-        self.path = path
+        self._path = path
         self.items = {}
 
         for column, name in enumerate(listdir(self.path)):
