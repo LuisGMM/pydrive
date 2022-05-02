@@ -65,7 +65,7 @@ class GuiFolder(GuiItem, Folder):
         self.gui_name.bind("<Button-1>", self.open_folder)
 
     def open_folder(self, event):
-        self.master.path = self.path
+        self.master.master.path = self.path
 
 
 class GuiFile(GuiItem, File):
