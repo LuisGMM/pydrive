@@ -21,7 +21,7 @@ class FileExplorer(tk.Frame):
         self.go_back_button.grid(row=0, column=0, sticky='NES')
 
         self.pathbar = tk.Label(self, text=self.path)
-        self.pathbar.grid(row=0, column=0, columnspan=2, sticky='NEWS')
+        self.pathbar.grid(row=0, column=1, columnspan=1, sticky='NWS')
 
         self.treedirectory = TreeDirectory(self, self.path)
         # self.treedirectory.pack(fill=tk.Y, side=tk.LEFT, expand=tk.YES)
