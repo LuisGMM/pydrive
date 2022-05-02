@@ -9,7 +9,7 @@ from tkinter import ttk
 # from PIL import ImageTk, Image
 
 from pydrive.core.filemanager import Folder, File
-
+# from pydrive.gui.fileexplorer import FileExplorer
 
 class GuiItem(ttk.Frame):
     '''Frame. Graphic version of Item class, it is meant to be parent of folders and files.
