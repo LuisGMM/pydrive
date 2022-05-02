@@ -31,6 +31,23 @@ class FileExplorer(tk.Frame):
         # self.windowmanager.pack(fill=tk.BOTH, side=tk.RIGHT, expand=tk.YES)
         self.windowmanager.grid(row=1, column=1, sticky="NSW")
 
+    @property
+    def path(self) -> str:
+        return self._path
+
+    @path.setter
+    def path(self, path: str) -> None:
+        self._path = path
+        self.pathbar.configure(text=self.path)
+
+        self.windowmanager.path = self.path
+
+
+    def cmd_go_back(self):
+        
+        if self.path != self.max_path:
+            self.path = '/'.join(self.path.split('/')[:-1])
+
 
 def main():
     root = tk.Tk()
