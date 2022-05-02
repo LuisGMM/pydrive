@@ -19,6 +19,7 @@ class GuiItem(ttk.Frame):
         gui_image (tk.Label): Image of the item stored in a label.
         gui_name (tk.Label): Name of the item in a label.
     '''
+
     def __init__(self, master: ttk.Frame, row: int, column: int, *args, **kwargs) -> None:
         '''Instantiate object.
 
@@ -43,8 +44,9 @@ class GuiFolder(GuiItem, Folder):
     '''Frame. Graphic version of Folder.
 
     Attributes:
-        
+
     '''
+
     def __init__(self, master: ttk.Frame, row: int, column: int, path: str, *args, **kwargs):
         GuiItem.__init__(self, master, row, column, *args, **kwargs)
         Folder.__init__(self, path)
