@@ -11,4 +11,11 @@ from pydrive.gui import fileexplorer
 # APP.mainloop()
 # ROOT.destroy()
 
-fileexplorer.main()
+def foo():
+    for i in range(10000000):
+        print(i**2)
+
+with ThreadPoolExecutor() as pool:
+    pool.submit(fileexplorer.main)
+    pool.submit(foo)
+
