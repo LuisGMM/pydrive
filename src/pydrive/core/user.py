@@ -43,6 +43,7 @@ class User(socket.socket):
         return self.recv(2048)
 
 
+def main():
 
     test_user = User()
     test_user.connect()
