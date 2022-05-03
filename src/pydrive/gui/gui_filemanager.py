@@ -11,6 +11,7 @@ from tkinter import ttk
 from pydrive.core.filemanager import Folder, File
 # from pydrive.gui.fileexplorer import FileExplorer
 
+
 class GuiItem(ttk.Frame):
     '''Frame. Graphic version of Item class, it is meant to be parent of folders and files.
 
@@ -115,7 +116,6 @@ class WindowManager(ttk.Frame):
     def path(self, path: str) -> None:
         self._path = path
         self.update_items()
-
 
     def update_items(self):
 
