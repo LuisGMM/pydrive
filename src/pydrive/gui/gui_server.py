@@ -80,5 +80,12 @@ class ServerFrame(tk.Frame):
         self.__server.start()
 
 
+def main():
+    ROOT = tk.Tk()
+    ROOT.geometry("600x300")
+    APP = ServerFrame(parent=ROOT)
+    APP.mainloop()
+    ROOT.destroy()
+
 if __name__ == "__main__":
     main()
