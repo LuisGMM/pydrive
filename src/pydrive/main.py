@@ -1,6 +1,5 @@
 
 from concurrent.futures import ThreadPoolExecutor
-from threading import Thread
 # import tkinter as tk
 
 from pydrive.gui import fileexplorer
@@ -11,11 +10,12 @@ from pydrive.gui import fileexplorer
 # APP.mainloop()
 # ROOT.destroy()
 
+
 def foo():
     for i in range(10000000):
         print(i**2)
 
+
 with ThreadPoolExecutor() as pool:
     pool.submit(fileexplorer.main)
     pool.submit(foo)
-
