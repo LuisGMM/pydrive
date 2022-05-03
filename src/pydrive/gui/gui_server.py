@@ -81,8 +81,4 @@ class ServerFrame(tk.Frame):
 
 
 if __name__ == "__main__":
-    ROOT = tk.Tk()
-    ROOT.geometry("600x300")
-    APP = ServerFrame(parent=ROOT)
-    APP.mainloop()
-    ROOT.destroy()
+    main()
