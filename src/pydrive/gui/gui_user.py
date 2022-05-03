@@ -58,7 +58,6 @@ class GuiUser(tk.Frame):
     def _cmd_connect_to_server(self):
 
         self.__title = self.user_name_entry.get()
-        self.__root = self.root_entry.get()
         self.__addr = (self.ip_entry.get(), int(self.port_entry.get()))
 
         self.parent.title(self.__title)
