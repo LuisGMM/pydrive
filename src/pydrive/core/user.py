@@ -43,12 +43,9 @@ class User(socket.socket):
         return self.recv(2048)
 
 
-if __name__ == '__main__':
 
     test_user = User()
     test_user.connect()
     test_user.send('Hello World')
-    test_user.send('Hello World')
-    test_user.send('Hello World')
-
+    test_user.send(input('Message: '))
     test_user.send(DISCONNECT)
