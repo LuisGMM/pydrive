@@ -8,7 +8,7 @@ from threading import Thread
 from pydrive.core.server import Server
 
 
-class ServerFrame(tk.Frame):
+class GuiServer(tk.Frame):
 
     def __init__(self, parent: tk.Tk, *args, **kwargs) -> None:
 
@@ -87,7 +87,7 @@ class ServerFrame(tk.Frame):
 def main():
     ROOT = tk.Tk()
     ROOT.geometry("600x300")
-    APP = ServerFrame(parent=ROOT)
+    APP = GuiServer(parent=ROOT)
     APP.mainloop()
     ROOT.destroy()
 
