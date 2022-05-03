@@ -50,3 +50,7 @@ def main():
     test_user.send('Hello World')
     test_user.send(input('Message: '))
     test_user.send(DISCONNECT)
+
+
+if __name__ == '__main__':
+    main()
