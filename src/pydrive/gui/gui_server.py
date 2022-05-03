@@ -79,7 +79,9 @@ class ServerFrame(tk.Frame):
 
         self.parent.title(self.__title)
         self.__server = Server(addr=self.__addr)
-        self.__server.start()
+
+        self.server_thread = Thread(target=self.__server.start)
+        self.server_thread.start()
 
 
 def main():
