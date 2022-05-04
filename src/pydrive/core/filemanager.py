@@ -114,3 +114,6 @@ class File(Item):
 
         except IOError as e:
             print(e)
+        
+        finally:
+            return b'0'
