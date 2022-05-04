@@ -96,7 +96,8 @@ class File(Item):
         '''Instantiate object.
 
         Args:
-            path (str): Location of the file.
+            from_path (str): Location of the file in the actual machine.
+            path (str): Location of the file in the server.
             modified (List[Tuple[datetime, User]], optional): Contains who and when modified this file. Defaults to None.
         '''
         super().__init__(path)
