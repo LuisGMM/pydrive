@@ -40,8 +40,8 @@ class Item(ABC):
         '''
         if isdir(self.path):
             return ImageTk.PhotoImage(Image.open('src/pydrive/gui/images/folder2.png').resize((100, 100)))
-        else:
-            return ImageTk.PhotoImage(Image.open('src/pydrive/gui/images/file2.png').resize((100, 100)))
+        
+        return ImageTk.PhotoImage(Image.open('src/pydrive/gui/images/file2.png').resize((100, 100)))
 
 
 class Folder(Item):
