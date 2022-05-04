@@ -110,7 +110,7 @@ class WindowManager(ttk.Frame):
         # self.grid(row=0, column=0, sticky='nsew')
 
     @property
-    def path(self) -> str:
+    def path(self) -> Union[str, None]:
         return self._path
 
     @path.setter
