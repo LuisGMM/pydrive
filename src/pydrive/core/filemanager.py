@@ -8,7 +8,6 @@ from typing import List, Tuple, Union
 from os import listdir
 from os.path import isdir
 
-import tkinter as tk
 from PIL import ImageTk, Image
 
 from pydrive.core.user import User
