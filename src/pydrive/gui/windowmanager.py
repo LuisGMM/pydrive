@@ -6,6 +6,7 @@ from os.path import isdir
 
 from tkinter import ttk
 
+from typing import Union
 # from PIL import ImageTk, Image
 
 from pydrive.core.filemanager import Folder, File
