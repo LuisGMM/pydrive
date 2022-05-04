@@ -106,7 +106,7 @@ class File(Item):
         self.image = self.get_image()
 
     @property
-    def file(self) -> bytes:
+    def content(self) -> bytes:
 
         try:
             with open(self.from_path, 'rb') as f:
