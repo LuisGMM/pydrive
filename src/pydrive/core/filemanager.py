@@ -64,7 +64,7 @@ class Folder(Item):
         self.image = self.get_image()
 
     @property
-    def dirs(self) -> list:
+    def dirs(self) -> List[str]:
         '''Returns a list with the items in the directory.
         If there is no permission to access the directory, it returns an empty list.
 
