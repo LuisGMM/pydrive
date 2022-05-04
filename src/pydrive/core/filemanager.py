@@ -101,6 +101,7 @@ class File(Item):
             modified (List[Tuple[datetime, User]], optional): Contains who and when modified this file. Defaults to None.
         '''
         super().__init__(path)
+        self.from_path = from_path
         self.modified = modified
         self.image = self.get_image()
 
