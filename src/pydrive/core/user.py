@@ -46,6 +46,17 @@ class User(socket.socket):
 
         return self.recv(2048)
 
+    def download(self, from_path: Item, to_path: str) -> None:
+
+        self.send('download ' + from_path)
+
+        try:
+            with open(to_path, 'wb') as f:
+                p.dump(file, f)
+        except Exception as e:
+            type('DownloadError', base=Exception, dict={})('Something went wrong during the download. \
+                Please chack that the paths are correct and there is enough space in the disk.')
+
 
 def main():
 
