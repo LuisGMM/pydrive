@@ -13,6 +13,7 @@ from PIL import ImageTk, Image
 from pydrive.core.user import User
 
 
+# TODO: implement an abstract method to retrieve the content of the item
 class Item(ABC):
     '''Parent class to represent a Folder or a File.
 
