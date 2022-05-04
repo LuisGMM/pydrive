@@ -3,7 +3,7 @@ from __future__ import annotations
 from abc import ABC
 
 from datetime import datetime
-from typing import List, Tuple
+from typing import List, Tuple, Union
 
 from os import listdir
 from os.path import isdir
