@@ -3,5 +3,5 @@
 
 
 class DataPackage():
-    def __init__(self, mode: str, package: str) -> None: 
+    def __init__(self, mode: str, package: str) -> None:
         pass
