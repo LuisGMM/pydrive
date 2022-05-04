@@ -29,7 +29,7 @@ class Item(ABC):
         self.path = path.replace('\\', '/')
         self.name = self.path.split('/')[-1]
 
-    def get_image(self) -> tk.PhotoImage:
+    def get_image(self) -> ImageTk.PhotoImage:
         '''Get the corresponding image depending if `path` corresponds to a file or a folder.
 
         Args:
