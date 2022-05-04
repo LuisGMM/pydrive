@@ -4,6 +4,9 @@ from typing import Tuple, Union
 import socket
 
 
+from pydrive.core.filemanager import Item
+
+
 PORT = 5050
 SERVER = socket.gethostbyname(socket.gethostname())
 ADDR = (SERVER, PORT)
