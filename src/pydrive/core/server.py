@@ -63,12 +63,12 @@ class Server(socket.socket):
 
         while connected:
 
-            msg_length = conn.recv(HEADER).decode(FORMAT)
+            pre_msg: str = conn.recv(HEADER).decode(FORMAT)
 
-            if not msg_length:
+            if not pre_msg:
                 continue
 
-            msg_length = int(msg_length)
+            msg_length: int = int(pre_msg)
 
             msg = conn.recv(msg_length).decode(FORMAT)
 
