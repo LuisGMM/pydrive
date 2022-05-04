@@ -18,7 +18,7 @@ DISCONNECT = 'DISCONNECT'
 
 class User(socket.socket):
 
-    def __init__(self, id: Union[None, str] = None, username: Union[None, str] = None , password: Union[None, str] = None, email: Union[None, str] = None,
+    def __init__(self, id: Union[None, str] = None, username: Union[None, str] = None, password: Union[None, str] = None, email: Union[None, str] = None,
                  family=socket.AF_INET, type=socket.SOCK_STREAM, addr: Tuple[str, int] = ADDR) -> None:
 
         super().__init__(family=family, type=type)
