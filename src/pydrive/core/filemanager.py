@@ -92,7 +92,7 @@ class File(Item):
         modified (List[Tuple[datetime, User]]): Contains who and when modified this file.
         image (tk.PhotoImage): Image of a folder.
     '''
-    def __init__(self, path: str, modified: List[Tuple[datetime, User]] = None) -> None:
+    def __init__(self, from_path:str, path: str, modified: Union[List[Tuple[datetime, User]], None] = None) -> None:
         '''Instantiate object.
 
         Args:
